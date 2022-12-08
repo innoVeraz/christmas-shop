@@ -1,64 +1,114 @@
-@use "utils/a11y"; // Om det inte funkar, byt @use mot @import
-@use "vendor/reset";
+@use 'utils/a11y'; // Om det inte funkar, byt @use mot @import
+@use 'vendor/reset';
 
-:root {
-  // TODO: Går bra att radera kod även här!
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: rem(16px);
-  line-height: 24px;
-  font-weight: 400;
-  color-scheme: light dark;
-  color: rgb(255 255 255 / 87%);
-  background-color: #242424;
-  font-synthesis: none;
-  text-rendering: optimizelegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-size-adjust: 100%;
+$mobile-breakpoint: 480px;
+
+body {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.hamburger-menu-icon {
+  min-height: 50px;
+  padding-top: 10px;
+  display: inline-block;
+  cursor: pointer;
 }
 
-// TODO: Radera mig! Jag är bara ett exempel.
-main {
-  padding: 20px;
-}
-
-.app {
-  margin-block: 20px;
+.main-nav {
+  background-color: white;
+  position: fixed;
   display: flex;
-  gap: 20px;
+  top: 0;
+  left: 0;
+  right: 0;
+  justify-content: space-between;
+  padding-top: 30px;
+  padding-left: 30px;
+  padding-right: 50px;
+  border-bottom: 1px solid black;
+}
+
+.logo {
+  margin-left: 20px;
+}
+
+.desktop-nav {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgb(178, 175, 172);
   justify-content: space-around;
+  top: 130px;
+  padding: 15px;
+}
 
-  .card {
-    $card-size: 250px;
+a:hover {
+  color: rgb(169, 167, 167);
+}
 
-    width: 0.6413 * $card-size;
-    height: $card-size;
-    cursor: pointer;
-    background: #102a3f;
-    border-radius: 8px;
-    display: flex;
-    font-weight: bold;
-    align-items: center;
-    justify-content: space-around;
-    text-align: center;
-    box-shadow: 5px 5px 5px rgb(0 0 0 / 20%);
+a {
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: white;
+}
 
-    .front {
-      font-size: rem(50px);
-    }
+main {
+  display: flex;
+  height: 100vh;
+  margin-top: 200px;
+}
 
-    .back {
-      display: none;
-    }
+.main-content {
+  display: grid;
+}
 
-    &.visible {
-      .front {
-        display: none;
-      }
+.gift-icon::before {
+  content: '3';
+  margin-right: 10px;
+  font-size: 25px;
+}
 
-      .back {
-        display: block;
-      }
-    }
+.welcome-text {
+}
+
+.rebate-box {
+  background-color: rgb(248, 235, 180);
+}
+
+.belysning,
+.tomtar {
+  background-color: rgb(237, 208, 213);
+}
+.pyssel {
+}
+
+.to-the-top::after {
+}
+
+.bar1,
+.bar2,
+.bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #333;
+  margin-bottom: 6px;
+  transition: 0.4s;
+}
+
+.change .bar1 {
+  transform: translate(0, 11px) rotate(-45deg);
+}
+
+.change .bar2 {
+  opacity: 0;
+}
+
+.change .bar3 {
+  transform: translate(0, -11px) rotate(45deg);
+}
+
+@media screen and (min-width: $mobile-breakpoint) {
+  .desktop-nav {
   }
 }

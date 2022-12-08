@@ -1,22 +1,50 @@
 <!DOCTYPE html>
-<html lang="en"> <!-- TODO: glöm ej att byta språk här -->
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/ico" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projekt</title>
-  </head>
-  <body>
-    <main>
-      <div class="app" id="app"></div> <!-- TODO: går bra att radera -->
-      <!-- TODO: skriv din kod här, innan script-taggen -->
-    </main>
+<html lang="se">
 
-    <!-- TODO
-    - Validera HTML (kopiera den renderade HTML-koden): https://validator.w3.org/#validate_by_input
-    - Kontrollera tillgänglighet: https://www.a11yproject.com/checklist/ & Chrome Lighthouse/Firefox Accessibility Tools
-    - Validera genererade CSS: https://jigsaw.w3.org/css-validator/#validate_by_input
-    -->
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Veras julshop</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Patrick+Hand&family=Quicksand:wght@300;400;600&display=swap"
+    rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/fef0a19249.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  <nav class="main-nav">
+    <div class="hamburger-menu-icon">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>
+    <div class="logo">
+      <img src="src/style/shop-img/logo-picture.png" alt="" width="200" height="100">
+    </div>
+    <div>
+      <div class="gift-icon"><i class="fa-solid fa-gift fa-2xl"></i></div>
+    </div>
+  </nav>
+  <nav class="desktop-nav">
+    <a href="">DEKORATION</a>
+    <a href="">BELYSNING</a>
+    <a href="">TYGER</a>
+  </nav>
+
+  <main class="main-content">
+    <div class="welcome-text">
+      <h1>VÄLKOMMEN IN!</h1>
+      <h3>Här hittar du handplockade julfavoriter för hemmet.</h3>
+    </div>
+    <div class="rebate-box">RABATTKOD</div>
+    <div class="belysning">BELYSNING</div>
+    <div class="tomtar">TOMTAR</div>
+    <div><img class="pyssel" src="src/style/shop-img/pyssel-bild.png" alt="" width="" height=""></div>
+    <button class="to-the-top">Till toppen</button>
+  </main>
+  <script type='module' src="src/script.js"></script>
+</body>
+
 </html>
