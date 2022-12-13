@@ -6,6 +6,7 @@ $mobile-breakpoint: 480px;
 body {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+
 .hamburger-menu-icon {
   min-height: 50px;
   padding-top: 10px;
@@ -21,9 +22,7 @@ body {
   left: 0;
   right: 0;
   justify-content: space-between;
-  padding-top: 30px;
-  padding-left: 30px;
-  padding-right: 50px;
+  padding: 30px;
   border-bottom: 1px solid black;
 }
 
@@ -34,17 +33,12 @@ body {
 .desktop-nav {
   display: flex;
   position: fixed;
-  top: 0;
+  top: 90px;
   left: 0;
   right: 0;
-  background-color: rgb(178, 175, 172);
+  background-color: rgb(126, 124, 121);
   justify-content: space-around;
-  top: 130px;
-  padding: 15px;
-}
-
-a:hover {
-  color: rgb(169, 167, 167);
+  padding: 5px;
 }
 
 a {
@@ -53,10 +47,13 @@ a {
   color: white;
 }
 
+a:hover {
+  color: rgb(169, 167, 167);
+}
+
 main {
   display: flex;
-  height: 100vh;
-  margin-top: 200px;
+  margin-top: 140px;
 }
 
 .main-content {
@@ -66,10 +63,20 @@ main {
 .gift-icon::before {
   content: '3';
   margin-right: 10px;
-  font-size: 25px;
+  font-size: 1.5rem;
+}
+
+.welcome {
+}
+
+.welcome-img {
+  display: block;
 }
 
 .welcome-text {
+  font-size: 2rem;
+  color: rgb(7, 7, 7);
+  font-weight: bold;
 }
 
 .rebate-box {
@@ -79,11 +86,6 @@ main {
 .belysning,
 .tomtar {
   background-color: rgb(237, 208, 213);
-}
-.pyssel {
-}
-
-.to-the-top::after {
 }
 
 .bar1,
@@ -106,6 +108,10 @@ main {
 
 .change .bar3 {
   transform: translate(0, -11px) rotate(45deg);
+}
+
+.hidden {
+  display: none;
 }
 
 @media screen and (min-width: $mobile-breakpoint) {
