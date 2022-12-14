@@ -9,25 +9,26 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Patrick+Hand&family=Quicksand:wght@300;400;600&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="src/style/style.scss" />
   <script src="https://kit.fontawesome.com/fef0a19249.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="src/style/style.scss" />
 </head>
 
 <body>
 
-  <nav class="main-nav">
+  <header>
     <div class="hamburger-menu-icon">
       <div class="bar1"></div>
       <div class="bar2"></div>
       <div class="bar3"></div>
     </div>
     <div class="logo">
-      <img src="src/style/shop-img/logo-picture.png" alt="" width="200" height="60">
+      <img src="src/style/shop-imgs/logo-picture.png" alt="" width="200" height="60">
     </div>
     <div>
-      <div class="gift-icon"><i class="fa-solid fa-gift fa-2xl"></i></div>
+      <div class="gift-icon"><i class="fagit-solid fa-gift fa-2xl"></i></div>
     </div>
-  </nav>
+  </header>
+
   <nav class="desktop-nav">
     <a href="">DEKORATION</a>
     <a href="">BELYSNING</a>
@@ -35,22 +36,25 @@
   </nav>
 
   <main class="main-content">
-
-
-    <h1 class="welcome-text">VÄLKOMMEN IN!
+    <h1 class="welcome">VÄLKOMMEN IN!
     </h1>
-
-    <div class="rebate-box">RABATTKOD</div>
-    <div class="belysning">BELYSNING</div>
-    <div class="tomtar">TOMTAR</div>
-    <div><img class="pyssel" src="src/style/shop-img/pyssel-bild.png" alt="" width="" height=""></div>
+    <div id="rebate-box">RABATTKOD</div>
+    <div id="lights">BELYSNING</div>
+    <div id="santas">TOMTAR</div>
+    <div id="pyssel"></div>
 
 
     <button class="back-to-top hidden">Till toppen</button>
 
 
   </main>
-  <section class="product-container"></section>
+  <nav class="filter-nav">
+    <button class="category">KATEGORI</button>
+    <button class="filter">FILTRERA</button>
+  </nav>
+  <section class="product-container">
+
+  </section>
   <script type='module' src="src/script.js"></script>
 </body>
 

@@ -13,8 +13,29 @@ body {
   display: inline-block;
   cursor: pointer;
 }
+.bar1,
+.bar2,
+.bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #333;
+  margin-bottom: 6px;
+  transition: 0.4s;
+}
 
-.main-nav {
+.change .bar1 {
+  transform: translate(0, 11px) rotate(-45deg);
+}
+
+.change .bar2 {
+  opacity: 0;
+}
+
+.change .bar3 {
+  transform: translate(0, -11px) rotate(45deg);
+}
+
+header {
   background-color: white;
   position: fixed;
   display: flex;
@@ -28,6 +49,12 @@ body {
 
 .logo {
   margin-left: 20px;
+}
+
+.gift-icon::before {
+  content: '3';
+  margin-right: 10px;
+  font-size: 1.5rem;
 }
 
 .desktop-nav {
@@ -51,70 +78,65 @@ a:hover {
   color: rgb(169, 167, 167);
 }
 
-main {
-  display: flex;
-  margin-top: 140px;
-}
-
 .main-content {
+  max-width: 1340px;
+  margin: auto;
+  width: 100%;
   display: grid;
-}
-
-.gift-icon::before {
-  content: '3';
-  margin-right: 10px;
-  font-size: 1.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 10px;
+  padding: 0 10px;
+  margin-top: 200px;
 }
 
 .welcome {
-}
-
-.welcome-img {
-  display: block;
-}
-
-.welcome-text {
+  background-image: url('');
+  grid-column: 1 / -1;
   font-size: 2rem;
   color: rgb(7, 7, 7);
   font-weight: bold;
 }
 
-.rebate-box {
+#rebate-box {
   background-color: rgb(248, 235, 180);
 }
 
-.belysning,
-.tomtar {
+#lights,
+#santas {
   background-color: rgb(237, 208, 213);
 }
 
-.bar1,
-.bar2,
-.bar3 {
-  width: 35px;
-  height: 5px;
-  background-color: #333;
-  margin-bottom: 6px;
-  transition: 0.4s;
+.filter-nav {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 20px;
 }
 
-.change .bar1 {
-  transform: translate(0, 11px) rotate(-45deg);
+.category,
+.filter {
+  background-color: grey;
+  color: white;
+  padding: 5px 50px;
 }
 
-.change .bar2 {
-  opacity: 0;
-}
-
-.change .bar3 {
-  transform: translate(0, -11px) rotate(45deg);
+.product-container {
+  padding: 20px 10px;
+  max-width: 1340px;
+  margin: auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 }
 
 .hidden {
   display: none;
 }
 
+/*
 @media screen and (min-width: $mobile-breakpoint) {
   .desktop-nav {
   }
 }
+*/
