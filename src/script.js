@@ -1,177 +1,113 @@
-// import './style/style.scss';
+//hamburger menu
 const hamburgerButton = document.querySelector('.hamburger-menu-icon');
+const mobileNav = document.querySelector('.mobile-nav');
 hamburgerButton.addEventListener('click', toggleHamburger);
 function toggleHamburger(event) {
   event.currentTarget.classList.toggle('change');
+  mobileNav.classList.toggle('hidden');
 }
-//producy array
-const products = [
-  {
-    name: 'Tomte vit/grå',
-    id: 0,
-    price: 199,
-    originalPrice: 199,
-    rating: 3,
-    amount: 0,
-    sum: 0,
-    img: ['src/style/shop-imgs/tomte-vit-1.png'],
-    alt: ['', ''],
-    description: 'Mysig tygtomte med fuskpäls',
-    category: ['dekoration', 'all'],
-  },
-  {
-    name: 'Veteranbil',
-    id: 1,
-    price: 199,
-    originalPrice: 199,
-    rating: 3,
-    amount: 0,
-    sum: 0,
-    img: ['src/style/shop-imgs/tomtevagn-1.jpg', ''],
-    alt: ['', ''],
-    description: 'Fin veteranbil med tomte, i porslin.',
-    category: ['dekoration', 'all'],
-  },
-  {
-    name: '',
-    id: 2,
-    price: 199,
-    originalPrice: 199,
-    rating: 3,
-    amount: 0,
-    sum: 0,
-    img: ['src/style/shop-imgs/tomtelykta-1.png', ''],
-    alt: ['', ''],
-    description: 'Gullig svampformad ljuslykta i keramik',
-    category: ['dekoration', 'belysning', 'all'],
-  },
-  {
-    name: '',
-    id: 3,
-    price: 199,
-    originalPrice: 199,
-    rating: 3,
-    amount: 0,
-    sum: 0,
-    img: ['src/style/shop-imgs/ljusstake-vit-1.jpg', ''],
-    alt: ['', ''],
-    description: 'Ljusstake i vit keramik för 5 ljus',
-    category: ['belysning', 'all'],
-  },
-  {
-    name: '',
-    id: 3,
-    price: 199,
-    originalPrice: 199,
-    rating: 3,
-    amount: 0,
-    sum: 0,
-    img: ['src/style/shop-imgs/ljusstake-gra-1.jpg', ''],
-    alt: ['', ''],
-    description: 'Ljusstake för 10 ljus i betong',
-    category: ['dekoration', 'all'],
-  },
 
-  {
-    name: '',
-    id: 3,
-    price: 199,
-    originalPrice: 199,
-    rating: 3,
-    amount: 0,
-    sum: 0,
-    img: ['src/style/shop-imgs/julstjarna-1.png', ''],
-    alt: ['', ''],
-    description: 'Röd julstjärna 100 cm',
-    category: ['dekoration', 'all'],
-  },
-  {
-    name: '',
-    id: 3,
-    price: 199,
-    originalPrice: 199,
-    rating: 3,
-    amount: 0,
-    sum: 0,
-    img: ['src/style/shop-imgs/julduk-paisely-1.png', ''],
-    alt: ['', ''],
-    description: '',
-    category: ['dekoration', 'all'],
-  },
-  {
-    name: '',
-    id: 3,
-    price: 199,
-    originalPrice: 199,
-    rating: 3,
-    amount: 0,
-    sum: 0,
-    img: ['src/style/shop-imgs/julduk-rand-1.png', ''],
-    alt: ['', ''],
-    description: '',
-    category: ['dekoration', 'all'],
-  },
-  {
-    name: '',
-    id: 3,
-    price: 199,
-    originalPrice: 199,
-    rating: 3,
-    amount: 0,
-    sum: 0,
-    img: ['src/style/shop-imgs/filt-varg-1.jpg', ''],
-    alt: ['', ''],
-    description: '',
-    category: ['dekoration', 'all'],
-  },
-  {
-    name: '',
-    id: 3,
-    price: 199,
-    originalPrice: 199,
-    rating: 3,
-    amount: 0,
-    sum: 0,
-    img: ['src/style/shop-imgs/filt-rutig-1.jpg', ''],
-    alt: ['', ''],
-    description: '',
-    category: ['dekoration', 'all'],
-  },
-  {
-    name: '',
-    id: 3,
-    price: 199,
-    originalPrice: 199,
-    rating: 3,
-    amount: 0,
-    sum: 0,
-    img: ['src/style/shop-imgs/kudde-tofsar-1.jpg', ''],
-    alt: ['', ''],
-    description: '',
-    category: ['dekoration', 'all'],
-  },
-  {
-    name: '',
-    id: 3,
-    price: 199,
-    originalPrice: 199,
-    rating: 3,
-    amount: 0,
-    sum: 0,
-    img: ['src/style/shop-imgs/kudde-linne-1.jpg', ''],
-    alt: ['', ''],
-    description: '',
-    category: ['dekoration', 'all'],
-  },
-];
+//render products on webpage
+const productEl = document.querySelector('.product-container');
+const cartItemsEl = document.querySelector('.shopping-cart');
 
-const productContainer = document.querySelector('.product-container');
-
-for (let i = 0; i < products.length; i++) {
-  const product = products[i];
-  productContainer.innerHTML += `
-    <article class= "xmas-item"
-    <h2>${product.name}</h2>
-    <img src="${product.img[0]}" alt="" width="200" height="200">
+//Render
+function renderProducts() {
+  products.forEach(product => {
+    productEl.innerHTML += `
+    <article class="product-information">
+      <img src="${product.img[0]}" alt="" width="" height="">
+      <p>${product.price}kr</p>
+      <h3>${product.name}</h3>
+      <button class="add-to-cart" onclick="addToCart(${product.id})">Lägg till</button>
     </article>`;
+  });
+}
+renderProducts();
+
+//cart array
+let cart = [];
+
+//add to cart
+function addToCart(id) {
+  //check if product already exist
+  if (cart.some(item => item.id === id)) {
+    alert('product already in cart');
+  } else {
+    const cartItem = products.find(product => product.id === id);
+    cart.push({
+      ...cartItem,
+      numberOfUnits: 1,
+    });
+  }
+  updateCart();
+  console.log(cart);
+}
+
+//update cart
+function updateCart() {
+  renderCartItems();
+  //renderSubtotal();
+}
+
+// render cart items
+function renderCartItems() {
+  cartItemsEl.innerHTML = '';
+  cart.forEach(item => {
+    cartItemsEl.innerHTML += `
+
+    <div class="master">
+    <div class="cart-img">
+    <img src="${item.img[0]}" width="auto" height="200" alt="${item.name}">
+    </div>
+    <article class="cart-info">
+    <button class="trash-can"><i class="fa-regular fa-trash-can"></i></button>
+      <h4 class="item-name">${item.name}</h4>
+      <div class="units">
+        <div class="cart-btns">
+          <button class="decrease-btn" type="button" data-operator="decrease">-</button>
+          <div class="unit-number">${item.numberOfUnits}</div>
+          <button class="increase-btn" type="button" data-operator="increase">+</button>
+        </div>
+      </div>
+      <div class="item-amount">${item.price}</div>
+    </article>
+    </div>`;
+  });
+}
+
+// scroll to hide desktop nav
+let scrollPos = 0;
+const nav = document.querySelector('.desktop-nav');
+
+function checkPosition() {
+  let windowY = window.scrollY;
+  if (windowY < scrollPos) {
+    // Scrolling UP
+    nav.classList.add('is-visible');
+    nav.classList.remove('hidden');
+  } else {
+    // Scrolling DOWN
+    nav.classList.add('hidden');
+    nav.classList.remove('is-visible');
+  }
+  scrollPos = windowY;
+}
+
+window.addEventListener('scroll', checkPosition);
+
+// form valuation
+const generateBtn = document.querySelector('#place-order');
+const emailField = document.querySelector('#email');
+const nameField = document.querySelector('#full-name');
+const adressField = document.querySelector('#adress');
+const cityField = document.querySelector('#city');
+const zipCodeField = document.querySelector('#zip-code');
+
+//för att upptäcka om någon fyllt i något
+nameField.addEventListener('change', checkName);
+
+function checkName() {
+  if (nameField.value.indexOf(' ') > -1) {
+  }
 }
