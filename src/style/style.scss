@@ -2,10 +2,9 @@
 @use 'vendor/reset';
 
 $mobile-breakpoint: 480px;
-$desktop-breakpoint: 481px;
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: Roboto, sans-serif;
 }
 
 .hamburger-menu-icon {
@@ -16,6 +15,7 @@ body {
   cursor: pointer;
   border: none;
 }
+
 .bar1,
 .bar2,
 .bar3 {
@@ -49,6 +49,7 @@ body {
 
   a,
   li {
+    text-transform: uppercase;
     list-style-type: none;
     text-decoration: none;
     color: black;
@@ -80,7 +81,7 @@ header {
 }
 
 .desktop-nav {
-  display: flex;
+  display: none;
   position: fixed;
   z-index: 3;
   top: 90px;
@@ -89,6 +90,8 @@ header {
   background-color: rgb(126, 124, 121);
   justify-content: space-around;
   padding: 5px;
+  text-transform: uppercase;
+
   a {
     font-size: 1.2rem;
     text-decoration: none;
@@ -106,32 +109,31 @@ header {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 200px auto auto;
+  grid-template-rows: 200px 200px 200px;
   gap: 10px;
   padding: 0 10px;
   margin-top: 150px;
 }
 
 .welcome {
-  font-family: 'Roboto', sans-serif;
-  background-image: url('shop-imgs/welcome-img.png');
+  background-image: url('../../public/shop-imgs/welcome-img.png');
   background-repeat: no-repeat;
   background-position: center;
   grid-column: 1 / -1;
 
   h1 {
-    text-shadow: rgb(48, 47, 46) 2px 0 10px;
+    text-shadow: rgb(9, 9, 9) 2px 0 20px;
     margin: 40px;
     font-size: 2rem;
     text-align: center;
     color: white;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: 100;
+    line-height: 60px;
+    font-weight: 400;
   }
 
   p {
     color: white;
-    text-shadow: rgb(29, 29, 28) 2px 0 10px;
+    text-shadow: rgb(9, 9, 9) 2px 0 20px;
     padding-bottom: 20px;
     margin: -51px 50px;
     text-align: center;
@@ -139,22 +141,44 @@ header {
   }
 }
 
-#rebate-box {
+.rebate-box {
+  text-transform: uppercase;
   background-color: rgb(248, 235, 180);
 }
 
-#lights,
-#santas {
-  background-color: rgb(237, 208, 213);
+.lights,
+.santas {
+  display: grid;
+  align-items: center;
+  color: white;
+  text-shadow: rgb(9, 9, 9) 2px 0 20px;
+  font-size: 1.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  @media screen and (min-width: $mobile-breakpoint) {
+    font-size: 3rem;
+  }
 }
 
-#rebate-box,
-#lights,
-#santas {
-  border: 1px solid rgb(186, 183, 183);
+.santas {
+  background-image: url('../../public/shop-imgs/tomtar-start-page.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
-#pyssel {
+.lights {
+  background-image: url('../../public/shop-imgs/belysning-img.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.pyssel {
+  background-image: url('../../public/shop-imgs/pyssel-bild.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 #filter {
@@ -174,8 +198,10 @@ header {
   padding: 5px 50px;
 }
 
+//Product section
+
 .product-container {
-  padding: 20px 10px;
+  padding: 100px 10px;
   max-width: 1340px;
   margin: auto;
   width: 100%;
@@ -216,86 +242,83 @@ header {
   }
 }
 
+// Shopping cart section
 .cart-headline {
+  position: relative;
+  position: fixed;
+  top: 50;
+  z-index: 9;
   text-align: center;
 }
 
 .shopping-cart {
-  display: grid;
-  margin: auto;
-  max-width: fit-content;
-  padding: 20px;
-  font-size: 1.2rem;
+  overflow-y: scroll;
+  position: absolute;
+  position: fixed;
+  padding: 30px;
+  font-size: 1rem;
+  z-index: 3;
+  margin-top: 80px;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgb(250, 246, 246);
+  row-gap: 24px;
 
   h4 {
-    padding: 10px;
+    font-family: 'Roboto ' sans-serif;
+    position: relative;
+    bottom: 18px;
   }
+}
+
+.cart-item-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+}
+
+.cart-details-wrapper {
+  position: relative;
 }
 
 .trash-can {
+  height: fit-content;
+  width: max-content;
   border: none;
+  padding: 0 7px;
+  border-radius: 30px;
   color: grey;
   margin-left: 25px;
   background-color: white;
+  position: relative;
+  left: 115px;
+  bottom: 25px;
 }
 
-.units::before {
-  content: 'Antal: ';
-}
-
-.item-amount::before {
-  content: 'Summa: ';
-  margin-right: 10px;
-}
-.master {
-  display: flex;
-  gap: 20px;
-  margin: 20px;
-
-  img {
-    width: 105px;
-    height: 110px;
-  }
-}
-
-.units {
-  display: flex;
-  justify-content: space-between;
-  border-radius: 5px;
-  margin-top: 11px;
-  margin-left: 10px;
-}
-
-.cart-btns {
+//cart buttons and number
+.cart-btns-wrapper {
+  width: max-content;
+  background-color: white;
   display: flex;
   border: 2px solid grey;
+  position: relative;
+  left: 30px;
 }
 
-.item-amount {
-  margin-top: 20px;
-  margin-left: 10px;
-}
-
-.checkout-btn {
-  background-color: #0844e5;
-  color: white;
-  padding: 10px;
-  border: none;
-}
-
-.decrease-btn,
-.increase-btn {
+#minus-btn,
+#plus-btn {
   background: none;
   padding-left: 15px;
   padding-right: 15px;
   border: none;
 }
 
-.checkout {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
+// cart footer
+.checkout-footer {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
 }
 
 .input {
@@ -312,9 +335,18 @@ header {
 
 //visa på desktop
 @media screen and (min-width: $mobile-breakpoint) {
+  .main-content {
+    grid-template-rows: 200px 400px 400px;
+  }
+
+  .desktop-nav {
+    display: flex;
+  }
+
   .product-container {
     grid-template-columns: repeat(3, 1fr);
   }
+
   .hamburger-menu-icon {
     display: none;
   }
@@ -326,18 +358,5 @@ header {
 
   .gift-icon {
     margin-right: 30px;
-  }
-
-  #pyssel {
-    img {
-      width: 400;
-      height: 300;
-    }
-  }
-}
-
-@media screen and (max-width: $desktop-breakpoint) {
-  .desktop-nav {
-    display: none;
   }
 }

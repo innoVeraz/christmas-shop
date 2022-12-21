@@ -5,8 +5,9 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Veras julshop</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;1,100;1,400&display=swap"
+  <title>Julbutiken</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100&display=swap"
     rel="stylesheet">
   <script src="https://kit.fontawesome.com/fef0a19249.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="src/style/style.scss" />
@@ -21,23 +22,23 @@
       <div class="bar3"></div>
     </button>
     <div class="logo">
-      <img src="src/style/shop-imgs/logo-picture.png" alt="" width="200" height="60">
+      <a href="index.html"><img src="/public/shop-imgs/logo-picture.png" alt="" width="200" height="60"></a>
     </div>
     <div>
-      <div class="gift-icon"><i class="fa-solid fa-gift fa-2xl"></i></div>
+      <div class="gift-icon"><i class="fa-solid fa-gift fa-2xl" alt="Varukorgen"></i></div>
     </div>
   </header>
   <nav class="mobile-nav hidden">
     <ul>
-      <li><a href="">DEKORATION</a></li>
-      <li><a href="">BELYSNING</a></li>
-      <li><a href="">TYGER</a></li>
+      <li><a href="product-page.html">dekoration</a></li>
+      <li><a href="">belysning</a></li>
+      <li><a href="">tyger</a></li>
     </ul>
   </nav>
   <nav class="desktop-nav">
-    <a href="">DEKORATION</a>
-    <a href="">BELYSNING</a>
-    <a href="">TYGER</a>
+    <a href="product-page.html">dekoration</a>
+    <a href="">belysning</a>
+    <a href="">tyger</a>
   </nav>
   <main class="main-content">
     <div class="welcome">
@@ -47,30 +48,19 @@
       <p>Handplockade julfavoriter för ditt hem.</p>
     </div>
 
-    <div id="rebate-box">RABATTKOD</div>
-    <div id="lights">BELYSNING</div>
-    <div id="santas">TOMTAR</div>
-    <div id="pyssel"><img src="src/style/shop-imgs/pyssel-bild.png" alt="" width="" height=""></div>
+    <div class="rebate-box">rabatt</div>
+    <div class="lights">belysning</div>
+    <div class="santas">tomtar</div>
+    <div class="pyssel"></div>
 
   </main>
-  <div class="drop-down"></div>
 
-  <select name="drop-down-menu" id="filter">
-    <option selected disabled value="">FILTER</option>
-    <option value="pris-stigande">Pris stigande</option>
-    <option value="pris-fallande">Pris fallande</option>
-    <option value="rating-stigande">Rating stigande</option>
-    <option value="rating-fallande">Rating fallande</option>
-  </select>
-
-  <!-- Product page section. -->
-  <section class="product-container"></section>
 
   <!-- shopping cart section. -->
-  <h2 class="cart-headline">Varukorgen</h2>
-
-  <section class="shopping-cart"></section>
-  <button class="checkout-btn">Gå till kassan</button>
+  <section class="shopping-cart hidden">
+    <div class="shopping-cart-content"></div>
+    <footer class="checkout-footer"></footer>
+  </section>
 
   <!-- checkout form section. -->
   <section class="checkout">
@@ -101,6 +91,7 @@
   </section>
 
   <button class="scroll-to-top-btn">Till toppen</button>
+
 
   <script src="src/products.js"></script>
   <script module src="src/script.js"></script>

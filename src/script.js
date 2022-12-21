@@ -7,11 +7,19 @@ function toggleHamburger(event) {
   mobileNav.classList.toggle('hidden');
 }
 
-//render products on webpage
-const productEl = document.querySelector('.product-container');
+// click to show shopping cart
+const cartIcon = document.querySelector('.gift-icon');
+cartIcon.addEventListener('click', openCart);
 const cartItemsEl = document.querySelector('.shopping-cart');
+const cartContent = document.querySelector('.shopping-cart-content');
+const productEl = document.querySelector('.product-container');
+const cartFooterEl = document.querySelector('.checkout-footer');
 
-//Render
+function openCart() {
+  cartItemsEl.classList.toggle('hidden');
+}
+
+//render products on webpage
 function renderProducts() {
   products.forEach(product => {
     productEl.innerHTML += `
@@ -19,6 +27,7 @@ function renderProducts() {
       <img src="${product.img[0]}" alt="" width="" height="">
       <p>${product.price}kr</p>
       <h3>${product.name}</h3>
+      
       <button class="add-to-cart" onclick="addToCart(${product.id})">Lägg till</button>
     </article>`;
   });
@@ -28,11 +37,10 @@ renderProducts();
 //cart array
 let cart = [];
 
-//add to cart
 function addToCart(id) {
   //check if product already exist
   if (cart.some(item => item.id === id)) {
-    alert('product already in cart');
+    changeNumberOfUnits('plus', id);
   } else {
     const cartItem = products.find(product => product.id === id);
     cart.push({
@@ -41,39 +49,76 @@ function addToCart(id) {
     });
   }
   updateCart();
-  console.log(cart);
 }
 
 //update cart
 function updateCart() {
   renderCartItems();
-  //renderSubtotal();
+  renderSubtotal();
+}
+
+function renderSubtotal() {
+  let totalPrice = 0;
+  const delivery = 49;
+  cart.forEach(item => {
+    totalPrice += item.price * item.numberOfUnits;
+  });
+  const sum = totalPrice + delivery;
+  cartFooterEl.innerHTML = `
+<div>Beställningsvärde:</div>
+<div>${totalPrice.toFixed(2)}</div>
+<div>Leverans:</div>
+<div>${delivery.toFixed(2)}</div>
+<div>Summa:</div>
+<div>${sum.toFixed(2)}</div>
+
+<button>Gå till kassan</button>
+`;
 }
 
 // render cart items
 function renderCartItems() {
-  cartItemsEl.innerHTML = '';
+  cartContent.innerHTML = '';
   cart.forEach(item => {
-    cartItemsEl.innerHTML += `
+    cartContent.innerHTML += `
 
-    <div class="master">
-    <div class="cart-img">
-    <img src="${item.img[0]}" width="auto" height="200" alt="${item.name}">
-    </div>
-    <article class="cart-info">
+    <article class="cart-item-wrapper">
+    <div class="cart-img"><img src="${item.img[0]}" width="auto" height="200" alt="${item.name}"></div>
     <button class="trash-can"><i class="fa-regular fa-trash-can"></i></button>
+    <div class="cart-details-wrapper">
       <h4 class="item-name">${item.name}</h4>
-      <div class="units">
-        <div class="cart-btns">
-          <button class="decrease-btn" type="button" data-operator="decrease">-</button>
-          <div class="unit-number">${item.numberOfUnits}</div>
-          <button class="increase-btn" type="button" data-operator="increase">+</button>
-        </div>
+      
+      <div class="cart-btns-wrapper">
+        <button id="minus-btn" onclick="changeNumberOfUnits('minus', ${item.id})" type="button">-</button>
+        <div class="units">${item.numberOfUnits}</div>
+        <button id="plus-btn" onclick="changeNumberOfUnits('plus', ${item.id})" type="button">+</button>
       </div>
       <div class="item-amount">${item.price}</div>
-    </article>
-    </div>`;
+    </div>
+    
+  </article>
+    `;
   });
+}
+
+//change number of units for an item
+function changeNumberOfUnits(action, id) {
+  cart = cart.map(item => {
+    let numberOfUnits = item.numberOfUnits;
+
+    if (item.id === id) {
+      if (action === 'minus' && numberOfUnits > 1) {
+        numberOfUnits--;
+      } else if (action === 'plus') {
+        numberOfUnits++;
+      }
+    }
+    return {
+      ...item,
+      numberOfUnits,
+    };
+  });
+  updateCart();
 }
 
 // scroll to hide desktop nav
@@ -111,3 +156,5 @@ function checkName() {
   if (nameField.value.indexOf(' ') > -1) {
   }
 }
+
+//christmas lights
