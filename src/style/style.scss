@@ -7,6 +7,7 @@ body {
   font-family: Roboto, sans-serif;
 }
 
+//top-navigation
 .hamburger-menu-icon {
   background-color: white;
   min-height: 50px;
@@ -14,6 +15,9 @@ body {
   display: inline-block;
   cursor: pointer;
   border: none;
+  @media screen and (min-width: $mobile-breakpoint) {
+    display: none;
+  }
 }
 
 .bar1,
@@ -60,18 +64,25 @@ body {
 header {
   background-color: white;
   position: fixed;
-  z-index: 2;
-  display: flex;
-  align-items: center;
   top: 0;
   left: 0;
   right: 0;
-  justify-content: space-between;
   padding: 20px;
+
+  .header-content {
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    max-width: 1000px;
+    margin: auto;
+    width: 100%;
+  }
 }
 
-.logo {
-  margin-left: 20px;
+@media screen and (min-width: $mobile-breakpoint) {
+  .logo {
+    width: 300px;
+  }
 }
 
 .gift-icon::before {
@@ -83,7 +94,6 @@ header {
 .desktop-nav {
   display: none;
   position: fixed;
-  z-index: 3;
   top: 90px;
   left: 0;
   right: 0;
@@ -91,6 +101,19 @@ header {
   justify-content: space-around;
   padding: 5px;
   text-transform: uppercase;
+  @media screen and (min-width: $mobile-breakpoint) {
+    display: flex;
+  }
+
+  ul {
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    max-width: 1000px;
+    margin: auto;
+    width: 100%;
+  }
 
   a {
     font-size: 1.2rem;
@@ -103,6 +126,7 @@ header {
   }
 }
 
+//startsida
 .main-content {
   max-width: 1000px;
   margin: auto;
@@ -113,6 +137,9 @@ header {
   gap: 10px;
   padding: 0 10px;
   margin-top: 150px;
+  @media screen and (min-width: $mobile-breakpoint) {
+    grid-template-rows: 200px 400px 400px;
+  }
 }
 
 .welcome {
@@ -181,15 +208,6 @@ header {
   background-size: cover;
 }
 
-#filter {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-left: 10px;
-  background-color: grey;
-  color: white;
-  padding: 5px 50px;
-}
-
 .scroll-to-top-btn {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -198,10 +216,27 @@ header {
   padding: 5px 50px;
 }
 
+.main-footer {
+  display: flex;
+  justify-content: space-between;
+  background-color: black;
+  color: white;
+  height: 200px;
+  padding-top: 40px;
+
+  ul {
+    list-style-type: none;
+  }
+}
+
+.page-contact {
+  margin-left: 20px;
+}
+
 //Product section
 
 .product-container {
-  padding: 100px 10px;
+  padding: 20px 10px;
   max-width: 1340px;
   margin: auto;
   width: 100%;
@@ -209,6 +244,9 @@ header {
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: auto;
   gap: 20px;
+  @media screen and (min-width: $mobile-breakpoint) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .product-information {
@@ -235,11 +273,23 @@ header {
   }
 
   img {
-    position: relative;
     max-height: 200px;
     width: auto;
     justify-self: center;
   }
+}
+
+.filter-btn {
+  display: flex;
+  justify-content: flex-end;
+  margin: 10px;
+}
+.drop-down-filter {
+  margin-top: 170px;
+  margin-bottom: 20px;
+  background-color: grey;
+  color: white;
+  padding: 5px;
 }
 
 // Shopping cart section
@@ -253,7 +303,7 @@ header {
 
 .shopping-cart {
   overflow-y: scroll;
-  position: absolute;
+
   position: fixed;
   padding: 30px;
   font-size: 1rem;
@@ -263,66 +313,233 @@ header {
   left: 0;
   right: 0;
   background-color: rgb(250, 246, 246);
-  row-gap: 24px;
+}
 
-  h4 {
-    font-family: 'Roboto ' sans-serif;
-    position: relative;
-    bottom: 18px;
-  }
+.shopping-cart-content {
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
 }
 
 .cart-item-wrapper {
+  position: relative;
+  background-color: white;
   display: flex;
-  flex-direction: row;
-  align-content: center;
-  justify-content: center;
+  column-gap: 4rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+
+.cart-img {
+  img {
+    height: auto;
+    width: 100px;
+  }
 }
 
 .cart-details-wrapper {
-  position: relative;
+  padding-top: 20px;
 }
 
 .trash-can {
-  height: fit-content;
-  width: max-content;
+  position: absolute;
+  top: 5px;
+  right: 5px;
   border: none;
   padding: 0 7px;
   border-radius: 30px;
-  color: grey;
-  margin-left: 25px;
+  color: rgb(92, 90, 90);
   background-color: white;
-  position: relative;
-  left: 115px;
-  bottom: 25px;
 }
 
-//cart buttons and number
 .cart-btns-wrapper {
   width: max-content;
   background-color: white;
   display: flex;
   border: 2px solid grey;
-  position: relative;
-  left: 30px;
 }
 
-#minus-btn,
-#plus-btn {
+//byt till klasser
+.minus-btn,
+.plus-btn {
   background: none;
   padding-left: 15px;
   padding-right: 15px;
   border: none;
 }
 
-// cart footer
-.checkout-footer {
+.shopping-cart-footer {
   display: grid;
   grid-template-columns: repeat(2, auto);
+
+  .go-to-checkout {
+    background-color: grey;
+    color: white;
+    text-decoration: none;
+    border: 1px solid black;
+    max-width: fit-content;
+    padding: 10px;
+    margin-top: 20px;
+  }
+
+  .go-to-checkout:hover {
+    background-color: rgb(31, 28, 246);
+    color: white;
+  }
 }
 
-.input {
-  width: 600px;
+// light rope css
+.checkout-body {
+  background-color: rgb(208, 203, 203);
+  $globe-width: 12px;
+  $globe-height: 28px;
+  $globe-spacing: 40px;
+  $globe-spread: 3px;
+  $light-off-opacity: 0.4;
+
+  .lightrope {
+    margin-top: 117px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+    width: 100%;
+    li {
+      position: relative;
+      animation-fill-mode: both;
+      animation-iteration-count: infinite;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: block;
+      width: $globe-width;
+      height: $globe-height;
+      border-radius: 50%;
+      margin: $globe-spacing/2;
+      display: inline-block;
+      background: rgb(0, 247, 4);
+      box-shadow: 0px $globe-height/6 $globe-width * 2 $globe-spread rgb(79, 246, 82);
+      animation-name: flash-1;
+      animation-duration: 2s;
+      &:nth-child(2n + 1) {
+        background: rgb(0, 13, 255);
+        box-shadow: 0px $globe-height/6 $globe-width * 2 $globe-spread rgba(0, 255, 255, 0.5);
+        animation-name: flash-2;
+        animation-duration: 0.4s;
+      }
+
+      &:nth-child(4n + 2) {
+        background: rgb(247, 0, 0);
+        box-shadow: 0px $globe-height/6 $globe-width * 2 $globe-spread rgba(247, 0, 148, 1);
+        animation-name: flash-3;
+        animation-duration: 1.1s;
+      }
+
+      &:nth-child(odd) {
+        animation-duration: 1.8s;
+      }
+
+      &:nth-child(3n + 1) {
+        animation-duration: 1.4s;
+      }
+
+      &:before {
+        content: '';
+        position: absolute;
+        background: #222;
+        width: ($globe-width - 2);
+        height: $globe-height/3;
+        border-radius: 3px;
+        top: (0 - ($globe-height/6));
+        left: 1px;
+      }
+
+      &:after {
+        content: '';
+        top: (0 - $globe-height/2);
+        left: $globe-width - 3;
+        position: absolute;
+        width: $globe-spacing + 12;
+        height: ($globe-height/3 * 2);
+        border-bottom: solid #222 2px;
+        border-radius: 50%;
+      }
+
+      &:last-child:after {
+        content: none;
+      }
+
+      &:first-child {
+        margin-left: -$globe-spacing;
+      }
+    }
+  }
+  @keyframes flash-1 {
+    0%,
+    100% {
+      background: rgb(12, 247, 0);
+      box-shadow: 0px $globe-height/6 $globe-width * 2 $globe-spread rgb(105, 245, 95);
+    }
+
+    50% {
+      background: rgba(0, 247, 165, $light-off-opacity);
+      box-shadow: 0px $globe-height/6 $globe-width * 2 $globe-spread rgba(0, 247, 165, 0.2);
+    }
+  }
+  @keyframes flash-2 {
+    0%,
+    100% {
+      background: rgb(34, 0, 255);
+      box-shadow: 0px $globe-height/6 $globe-width * 2 $globe-spread rgb(75, 48, 248);
+    }
+
+    50% {
+      background: rgba(0, 255, 255, $light-off-opacity);
+      box-shadow: 0px $globe-height/6 $globe-width * 2 $globe-spread rgba(0, 255, 255, 0.2);
+    }
+  }
+  @keyframes flash-3 {
+    0%,
+    100% {
+      background: rgb(247, 0, 0);
+      box-shadow: 0px $globe-height/6 $globe-width * 2 $globe-spread rgb(246, 58, 58);
+    }
+
+    50% {
+      background: rgba(247, 0, 148, $light-off-opacity);
+      box-shadow: 0px $globe-height/6 $globe-width * 2 $globe-spread rgba(247, 0, 148, 0.2);
+    }
+  }
+}
+
+// checkout section
+.checkout-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 150px;
+  max-width: 1340px;
+  margin: auto;
+  width: 100%;
+  gap: 5px;
+
+  h2 {
+    margin-top: 50px;
+    padding-bottom: 40px;
+  }
+  input {
+    width: 300px;
+    border-radius: 10px;
+    border-style: none;
+    border: 1px solid grey;
+  }
+}
+
+.place-order {
+  margin: 30px;
+  width: 200px;
 }
 
 .hidden {
@@ -331,32 +548,4 @@ header {
 
 .is-visible {
   display: flex;
-}
-
-//visa på desktop
-@media screen and (min-width: $mobile-breakpoint) {
-  .main-content {
-    grid-template-rows: 200px 400px 400px;
-  }
-
-  .desktop-nav {
-    display: flex;
-  }
-
-  .product-container {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .hamburger-menu-icon {
-    display: none;
-  }
-
-  .logo {
-    margin-left: 50px;
-    width: 300px;
-  }
-
-  .gift-icon {
-    margin-right: 30px;
-  }
 }

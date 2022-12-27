@@ -15,58 +15,50 @@
 
 <body>
     <header>
-        <button class="hamburger-menu-icon">
-            <div class="bar1"></div>
-            <div class="bar2"></div>
-            <div class="bar3"></div>
-        </button>
-        <div class="logo">
-            <a href="index.html"><img src="/public/shop-imgs/logo-picture.png" alt="" width="200" height="60"></a>
-        </div>
-        <div>
-            <div class="gift-icon"><i class="fa-solid fa-gift fa-2xl" alt="Varukorgen"></i></div>
+        <div class="header-content">
+            <button class="hamburger-menu-icon">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </button>
+            <div class="logo">
+                <a href="index.html"><img src="/public/shop-imgs/logo-picture.png" alt="" width="200" height="60"></a>
+            </div>
+            <div>
+                <div class="gift-icon"><i class="fa-solid fa-gift fa-2xl" alt="Varukorgen"></i></div>
+            </div>
         </div>
     </header>
-    <nav class="mobile-nav hidden">
-        <ul>
-            <li><a href="">dekoration</a></li>
-            <li><a href="">belysning</a></li>
-            <li><a href="">tyger</a></li>
-        </ul>
-    </nav>
-    <nav class="desktop-nav">
-        <a href="">dekoration</a>
-        <a href="">belysning</a>
-        <a href="">tyger</a>
-    </nav>
 
-    <label for="filter">
+    <nav class="mobile-nav hidden"></nav>
+    <nav class="desktop-nav"></nav>
+
+    <label class=" filter-btn" for="filter">
         <select class="drop-down-filter" name="filter" id="filter">
-            <option selected disabled value="">FILTER</option>
+            <option selected disabled value="">Sortering</option>
             <option value="pris-stigande">Pris stigande</option>
             <option value="pris-fallande">Pris fallande</option>
             <option value="rating-stigande">Rating stigande</option>
             <option value="rating-fallande">Rating fallande</option>
         </select>
     </label>
+
     <!-- Product page section. -->
     <section class="product-container"></section>
 
     <!-- shopping cart section. -->
     <section class="shopping-cart hidden">
+        <h2>Varukorgen</h2>
         <div class="shopping-cart-content"></div>
-        <footer class="checkout-footer"></footer>
+        <footer class="shopping-cart-footer"></footer>
     </section>
-
-
 
     <button class="scroll-to-top-btn">Till toppen</button>
 
-
+    <script src="src/script.js"></script>
     <script src="src/products.js"></script>
-    <script module src="src/script.js"></script>
-
-
+    <script src="src/shopping-cart.js"></script>
+    <script src="src/product-page.js"></script>
 </body>
 
 </html>
