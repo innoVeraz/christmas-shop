@@ -1,14 +1,16 @@
 const productEl = document.querySelector('.product-container');
 const category = window.location.search.split('?category=')[1] || 'alla';
-let sorting = null;
 const sortingEl = document.querySelector('.drop-down-filter');
+
 sortingEl.addEventListener('change', onSortingChange);
-//render products on webpage
-function renderProducts() {
+
+renderProducts();
+
+function renderProducts(sorting) {
   productEl.innerHTML = '';
   products
     .filter(product => product.category.includes(category))
-    .sort(sortProducts)
+    .sort((a, b) => sortProducts(a, b, sorting))
     .forEach(product => {
       productEl.innerHTML += `
     <article class="product-information">
@@ -19,14 +21,12 @@ function renderProducts() {
     </article>`;
     });
 }
-renderProducts();
 
 function onSortingChange() {
-  sorting = this.value;
-  renderProducts();
+  renderProducts(this.value);
 }
 
-function sortProducts(a, b) {
+function sortProducts(a, b, sorting) {
   switch (sorting) {
     case 'pris-stigande':
       return a.price - b.price;
