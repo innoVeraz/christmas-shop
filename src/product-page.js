@@ -15,11 +15,31 @@ function renderProducts(sorting) {
       productEl.innerHTML += `
     <article class="product-information">
       <img src="${product.img[0]}" alt="" width="" height="200">
-      <p>${product.price}kr</p>
+      <div class="rating-and-price">
+      <span>${product.price}kr</span>
+      ${renderRating(product.rating)}
+      </div>
       <h3>${product.name}</h3>
       <button class="add-to-cart" onclick="addToCart(${product.id})">Lägg till</button>
     </article>`;
     });
+}
+
+function renderRating(rating) {
+  let html = '';
+
+  for (let i = 1; i <= 5; i++) {
+    if (i <= rating) {
+      html += `
+        <i class="fa-regular fa-snowflake color-rating"></i>
+        `;
+    } else {
+      html += `
+        <i class="fa-regular fa-snowflake rating-color-none"></i>
+        `;
+    }
+  }
+  return html;
 }
 
 function onSortingChange() {
