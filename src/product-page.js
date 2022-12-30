@@ -16,7 +16,7 @@ function renderProducts(sorting) {
     .forEach(product => {
       productEl.innerHTML += `
     <article class="product-information">
-      <img src="${product.img[0]}" alt="" width="" height="200">
+      <img loading="lazy" src="${product.img[0]}" alt="" width="" height="200">
       <div class="rating-and-price">
       <span>${product.price} kr</span>
       ${renderRating(product.rating)}
