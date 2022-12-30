@@ -22,60 +22,58 @@
                 <div class="bar3"></div>
             </button>
             <div class="logo">
-                <a href="index.html"><img src="/public/shop-imgs/logo-picture.png" alt="" width="200" height="60"></a>
+                <a href="index.html"><img src="/shop-imgs/logo-picture.png" alt="" width="200" height="60"></a>
             </div>
 
             <div class="cart-icon-wrapper">
-                <div class="cart-item-number">3</div>
+                <div class="cart-item-number"></div>
                 <div class="gift-icon"><i class="fa-solid fa-gift fa-2xl" alt="Varukorgen"></i></div>
             </div>
 
         </div>
     </header>
 
-    <nav class="mobile-nav hidden"></nav>
+    <nav class="mobile-nav"></nav>
     <nav class="desktop-nav"></nav>
 
-    <label class=" filter-btn" for="filter">
-        <select class="drop-down-filter" name="filter" id="filter">
-            <option selected disabled value="">Sortering</option>
-            <option value="pris-stigande">Pris stigande</option>
-            <option value="pris-fallande">Pris fallande</option>
-            <option value="rating-stigande">Rating stigande</option>
-            <option value="rating-fallande">Rating fallande</option>
-        </select>
-    </label>
+    <div class="sorting-wrapper">
+        <label class=" filter-btn" for="filter">
+            <select class="drop-down-filter" name="filter" id="filter">
+                <option selected disabled value="">Sortering</option>
+                <option value="pris-stigande">Pris stigande</option>
+                <option value="pris-fallande">Pris fallande</option>
+                <option value="rating-stigande">Rating stigande</option>
+                <option value="rating-fallande">Rating fallande</option>
+            </select>
+        </label>
+    </div>
 
     <!-- Product page section. -->
     <section class="product-container"></section>
 
     <!-- shopping cart section. -->
-    <section class="shopping-cart hidden">
+    <section class="shopping-cart">
         <h2>Varukorgen</h2>
         <div class="shopping-cart-content"></div>
         <footer class="shopping-cart-footer"></footer>
 
     </section>
     <button class="scroll-to-top-btn">Till toppen</button>
+
     <footer class="main-footer">
 
-        <div class="footer-content">
+        <a class="footer-link" href="https://goo.gl/maps/Upka1FHzJTjSVr8s8">
             <ul class="page-adress">
                 <li>Julbutiken AB</li>
                 <li>Hornsgatan 80</li>
                 <li>117 26 Stockholm</li>
             </ul>
+        </a>
 
-
-
-            <ul class="page-contact">
-                <li>Telefon:
-                <li>08-123 45 67</li>
-                </li>
-                <li>E-mail:</li>
-                <li>julbutiken@gmail.com</li>
-            </ul>
-        </div>
+        <ul class="page-contact">
+            <li>Telefon: 08-123 45 67</li>
+            <li>E-mail: julbutiken@gmail.com</li>
+        </ul>
     </footer>
 
 

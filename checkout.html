@@ -14,7 +14,6 @@
 </head>
 
 <body class="checkout-body">
-
     <ul class="lightrope">
         <li></li>
         <li></li>
@@ -59,67 +58,80 @@
         <li></li>
         <li></li>
     </ul>
-
     <header></header>
-    <div class="keep-shopping">
-        <a href="product-page.html"><button class="keep-shopping-btn"> &larr; Fortsätt shoppa</button></a>
-    </div>
     <section class="checkout-form-wrapper">
+        <div class="keep-shopping-link">
+            <a href="product-page.html"> &larr; Fortsätt shoppa</a>
+        </div>
 
         <h2>Välkommen till kassan</h2>
-        <p>E-mail</p>
-        <label for="email">
-            <input type="email" name="E-mail" id="email">
-        </label>
-        <p>För & Efternamn</p>
-        <label for="full-name">
-            <input type="text" name="fullname" id="full-name">
-        </label>
-        <p>Adress 1</p>
-        <label for="adress">
-            <input type="text" name="adress" id="adress">
-        </label>
-        <p>c/o adress 2</p>
-        <label for="care-of">
-            <input type="text" name="care-of" id="care-of">
-        </label>
-        <p>Postkod</p>
-        <label for="zip-code">
-            <input type="number" name="zip" id="zip-code">
-        </label>
-        <p>Ort</p>
-        <label for="city">
-            <input type="text" name="city" id="city">
-        </label>
+        <div class="shopping-cart-content"></div>
+        <div class="shopping-cart-footer"></div>
+
+        <div class="checkout-rebate-wrapper">
+
+            <label for="rebate-code">Rabattkod</label>
+            <div class="rebate-content">
+                <input class="rebate-input" type="text" name="rebate-code" id="rebate-code">
+                <div class="rebate-message" id="rebate-message"></div>
+            </div>
+            <button class="use-rebate-btn">Lägg till</button>
+
+        </div>
+
+
+        <div class="input-form-wrapper">
+            <h3>Fyll i dina kontaktuppgifter</h3>
+            <label for="email">
+                <p>E-mail <span>*</span></p>
+                <input type="email" name="email" id="email">
+            </label>
+            <label for="full-name">
+                <p>För & Efternamn<span>*</span></p>
+                <input type="text" name="fullname" id="full-name">
+            </label>
+            <label for="adress">
+                <p>Adress<span>*</span></p>
+                <input type="text" name="street" id="adress">
+            </label>
+            <label for="care-of">
+                <p>c/o adress</p>
+                <input type="text" name="care-of" id="care-of">
+            </label>
+            <label for="zip-code">
+                <p>Postkod<span>*</span></p>
+                <input type="text" name="zip" id="zip-code">
+            </label>
+            <label for="city">
+                <p>Ort<span>*</span></p>
+                <input type="text" name="city" id="city">
+            </label>
+        </div>
 
         <button disabled class="place-order" id="placeOrderBtn">Lägg beställning</button>
-        <button class="abort-order">Avbryt</button>
+        <button class="abort-order-btn">Avbryt</button>
 
     </section>
 
+    <button class="scroll-to-top-btn">Till toppen</button>
     <footer class="main-footer">
-
-        <div class="footer-content">
+        <a class="footer-link" href="https://goo.gl/maps/Upka1FHzJTjSVr8s8">
             <ul class="page-adress">
                 <li>Julbutiken AB</li>
                 <li>Hornsgatan 80</li>
                 <li>117 26 Stockholm</li>
             </ul>
-            <ul class="page-contact">
-                <li>Telefon:
-                <li>08-123 45 67</li>
-                </li>
-                <li>E-mail:</li>
-                <li>julbutiken@gmail.com</li>
-            </ul>
-        </div>
+        </a>
+        <ul class="page-contact">
+            <li>Telefon: 08-123 45 67</li>
+            <li>E-mail: julbutiken@gmail.com</li>
+        </ul>
     </footer>
 
 
     <script src="src/products.js"></script>
-    <script module src="src/script.js"></script>
-
-
+    <script src="src/shopping-cart.js"></script>
+    <script src="src/checkout.js"></script>
 </body>
 
 </html>

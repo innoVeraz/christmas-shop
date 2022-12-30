@@ -1,20 +1,25 @@
 const hamburgerButton = document.querySelector('.hamburger-menu-icon');
 const mobileNav = document.querySelector('.mobile-nav');
 const desktopNav = document.querySelector('.desktop-nav');
+const scrollToTopBtn = document.querySelector('.scroll-to-top-btn');
 
 hamburgerButton.addEventListener('click', toggleHamburger);
+scrollToTopBtn.addEventListener('click', scrollToTop);
 
 renderNavigation();
 setActive();
 
 function toggleHamburger(event) {
   event.currentTarget.classList.toggle('change');
-  mobileNav.classList.toggle('hidden');
+  mobileNav.classList.toggle('open');
 }
 
 function setActive() {
-  const links = [...mobileNav.getElementsByTagName('a'), ...desktopNav.getElementsByTagName('a')];
-  console.log(links);
+  const links = [
+    ...mobileNav.getElementsByTagName('a'),
+    ...desktopNav.getElementsByTagName('a'),
+  ];
+
   for (i = 0; i < links.length; i++) {
     if (document.location.href === links[i].href) {
       links[i].className = 'active';
@@ -23,8 +28,6 @@ function setActive() {
 }
 
 function renderNavigation() {
-  const href = window.location.pathname;
-  console.log(href);
   const navigation = `
 <ul>
   <li><a href="product-page.html">alla produkter</a></li>
@@ -35,6 +38,11 @@ function renderNavigation() {
 
   mobileNav.innerHTML = navigation;
   desktopNav.innerHTML = navigation;
+}
+
+// scroll button
+function scrollToTop() {
+  window.scrollTo(0, 0);
 }
 
 // scroll to hide desktop nav

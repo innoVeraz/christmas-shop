@@ -2,28 +2,40 @@ const cartItemsEl = document.querySelector('.shopping-cart');
 const cartContent = document.querySelector('.shopping-cart-content');
 const cartFooterEl = document.querySelector('.shopping-cart-footer');
 const cartIcon = document.querySelector('.gift-icon');
+const cartNumber = document.querySelector('.cart-item-number');
 
 let cart = JSON.parse(localStorage.getItem('CART')) || []; //cart array with local storage
 
-cartIcon.addEventListener('click', openCart);
+cartIcon?.addEventListener('click', openCart);
 
 updateCart();
 
 function updateCart() {
   renderCartItems();
   renderSubtotal();
+  cartNumber && updateCartNumber();
 
   localStorage.setItem('CART', JSON.stringify(cart));
 }
 
+function updateCartNumber() {
+  const productCount = cart.reduce(
+    (count, item) => (count = count + item.numberOfUnits),
+    0
+  );
+
+  cartNumber.innerHTML = productCount;
+}
+
 function openCart() {
-  cartItemsEl.classList.toggle('hidden');
+  cartItemsEl.classList.toggle('open');
 }
 
 function renderCartItems() {
   cartContent.innerHTML = '';
   cart.forEach(item => {
     cartContent.innerHTML += `
+    
       <article class="cart-item-wrapper">
         <div class="cart-img"><img src="${item.img[0]}" width="auto" height="200" alt="${item.name}"></div>
         
@@ -35,23 +47,31 @@ function renderCartItems() {
             <div class="units">${item.numberOfUnits}</div>
             <button class="plus-btn" onclick="changeNumberOfUnits('plus', ${item.id})" type="button">+</button>
           </div>
-          <div class="item-amount">Pris: ${item.price} kr</div>
+          <div class="item-price">${item.price}kr/st</div>
+          
         </div>
       </article>
       `;
   });
 }
 
-function renderSubtotal() {
+function renderSubtotal(rebate = false) {
   let totalPrice = 0;
   const delivery = 49;
   cart.forEach(item => {
     totalPrice += item.price * item.numberOfUnits;
   });
+  let rebateHtml = '';
+  if (rebate) {
+    totalPrice = totalPrice * 0.76;
+    rebateHtml = `  <div>Rabatt:</div>
+    <div class="rebate-amount-number">- 24%</div>`;
+  }
   const sum = totalPrice + delivery;
   cartFooterEl.innerHTML = `
   <div>Beställningsvärde:</div>
   <div>${totalPrice.toFixed(2)}</div>
+  ${rebateHtml}
   <div>Leverans:</div>
   <div>${delivery.toFixed(2)}</div>
   <div>Summa:</div>

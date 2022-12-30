@@ -16,7 +16,7 @@ function renderProducts(sorting) {
     <article class="product-information">
       <img src="${product.img[0]}" alt="" width="" height="200">
       <div class="rating-and-price">
-      <span>${product.price}kr</span>
+      <span>${product.price} kr</span>
       ${renderRating(product.rating)}
       </div>
       <h3>${product.name}</h3>
