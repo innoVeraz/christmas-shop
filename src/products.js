@@ -8,7 +8,7 @@ export const products = [
     amount: 0,
     sum: 0,
     img: [
-      '/shop-imgs/tomte-vit-1.png',
+      '/public/shop-imgs/tomte-vit-1.png',
       '/shop-imgs/tomte-vit-2.png',
       '/shop-imgs/tomte-vit-3.png',
     ],
