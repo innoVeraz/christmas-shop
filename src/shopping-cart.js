@@ -1,3 +1,4 @@
+import { products } from './products';
 const cartItemsEl = document.querySelector('.shopping-cart');
 const cartContent = document.querySelector('.shopping-cart-content');
 const cartFooterEl = document.querySelector('.shopping-cart-footer');
@@ -6,7 +7,7 @@ const cartNumber = document.querySelector('.cart-item-number');
 
 let cart = JSON.parse(localStorage.getItem('CART')) || []; //cart array with local storage
 
-cartIcon?.addEventListener('click', openCart);
+cartIcon.addEventListener('click', openCart);
 
 updateCart();
 
@@ -28,7 +29,7 @@ function updateCartNumber() {
 }
 
 function openCart() {
-  cartItemsEl.classList.toggle('open');
+  cartItemsEl.classList.toggle('hej');
 }
 
 function renderCartItems() {
@@ -40,12 +41,12 @@ function renderCartItems() {
         <div class="cart-img"><img src="${item.img[0]}" width="auto" height="200" alt="${item.name}"></div>
         
         <div class="cart-details-wrapper">
-          <button class="trash-can" onclick="removeCartItem(${item.id})"><i class="fa-regular fa-trash-can"></i></button>
+          <button class="trash-can" data-id="${item.id})"><i class="fa-regular fa-trash-can"></i></button>
           <p class="item-name">${item.name}</p>
           <div class="cart-btns-wrapper">
-            <button class="minus-btn" onclick="changeNumberOfUnits('minus', ${item.id})" type="button">-</button>
+            <button class="minus-btn" data-id="${item.id}" type="button">-</button>
             <div class="units">${item.numberOfUnits}</div>
-            <button class="plus-btn" onclick="changeNumberOfUnits('plus', ${item.id})" type="button">+</button>
+            <button class="plus-btn" data-id="${item.id}" type="button">+</button>
           </div>
           <div class="item-price">${item.price}kr/st</div>
           
@@ -81,7 +82,7 @@ function renderSubtotal(rebate = false) {
   `;
 }
 
-function addToCart(id) {
+export function addToCart(id) {
   if (cart.some(item => item.id === id)) {
     changeNumberOfUnits('plus', id);
   } else {

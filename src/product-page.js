@@ -1,3 +1,5 @@
+import { products } from './products';
+import { addToCart } from './shopping-cart';
 const productEl = document.querySelector('.product-container');
 const category = window.location.search.split('?category=')[1] || 'alla';
 const sortingEl = document.querySelector('.drop-down-filter');
@@ -20,9 +22,14 @@ function renderProducts(sorting) {
       ${renderRating(product.rating)}
       </div>
       <h3>${product.name}</h3>
-      <button class="add-to-cart" onclick="addToCart(${product.id})">Lägg till</button>
+      <button class="add-to-cart" data-id="${product.id}">Lägg till</button>
     </article>`;
     });
+  document.querySelectorAll('.add-to-cart').forEach(el => {
+    el.addEventListener('click', function () {
+      addToCart(parseInt(this.dataset.id));
+    });
+  });
 }
 
 function renderRating(rating) {

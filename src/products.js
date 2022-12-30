@@ -1,5 +1,5 @@
 //product array
-const products = [
+export const products = [
   {
     name: 'Tomte vit/grå',
     id: 0,

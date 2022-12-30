@@ -20,7 +20,7 @@ function setActive() {
     ...desktopNav.getElementsByTagName('a'),
   ];
 
-  for (i = 0; i < links.length; i++) {
+  for (let i = 0; i < links.length; i++) {
     if (document.location.href === links[i].href) {
       links[i].className = 'active';
     }
