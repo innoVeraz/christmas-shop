@@ -8,9 +8,9 @@ export const products = [
     amount: 0,
     sum: 0,
     img: [
-      '/src/shop-imgs/tomte-vit-1.png',
-      '/src/shop-imgs/tomte-vit-2.png',
-      '/src/shop-imgs/tomte-vit-3.png',
+      '/shop-imgs/tomte-vit-1.png',
+      '/shop-imgs/tomte-vit-2.png',
+      await import('/src/shop-imgs/tomte-vit-3.png').then(x => x.default),
     ],
     alt: [
       'tomte i grått och vitt tyg stor spetsig mössa',
@@ -27,7 +27,7 @@ export const products = [
     amount: 0,
     sum: 0,
     img: [
-      '/src/shop-imgs/tomtevagn-1.jpg',
+      'shop-imgs/tomtevagn-1.jpg',
       '/src/shop-imgs/tomtevagn-2.jpg',
       '/src/shop-imgs/tomtevagn-3.jpg',
     ],
@@ -46,7 +46,7 @@ export const products = [
     amount: 0,
     sum: 0,
     img: [
-      '/src/shop-imgs/tomtelykta-1.png',
+      await import('/src/shop-imgs/tomtelykta-1.png').then(x => x.default),
       '/src/shop-imgs/tomtelykta-2.jpg',
       '/src/shop-imgs/tomtelykta-3.png',
     ],
@@ -62,7 +62,9 @@ export const products = [
     amount: 0,
     sum: 0,
     img: [
-      '/src/shop-imgs/ljusstake-vit-1.jpg',
+      await import('/public/shop-imgs/ljusstake-vit-1.jpg').then(
+        x => x.default
+      ),
       '/src/shop-imgs/ljusstake-vit-2.jpg',
     ],
     alt: [
@@ -80,7 +82,7 @@ export const products = [
     amount: 0,
     sum: 0,
     img: [
-      '/src/shop-imgs/ljusstake-gra-1.jpg',
+      await import('/shop-imgs/ljusstake-gra-1.jpg').then(x => x.default),
       '/src/shop-imgs/ljusstake-gra-2.jpg',
     ],
     alt: ['Ljusstake för 10 ljus i betong', 'Ljusstake för 10 ljus i betong'],
