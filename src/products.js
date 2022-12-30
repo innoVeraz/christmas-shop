@@ -1,4 +1,15 @@
-import img from '../public/shop-imgs/tomte-vit-1.png';
+import img1 from '../public/shop-imgs/tomte-vit-1.png';
+import img2 from '../public/shop-imgs/tomtevagn-1.jpg';
+import img3 from '../public/shop-imgs/tomtelykta-1.png';
+import img4 from '../public/shop-imgs/ljusstake-vit-1.jpg';
+import img5 from '../public/shop-imgs/ljusstake-gra-1.jpg';
+import img6 from '../public/shop-imgs/julstjarna-1.png';
+import img7 from '../public/shop-imgs/julduk-paisely-1.png';
+import img8 from '../public/shop-imgs/julduk-rand-1.png';
+import img9 from '../public/shop-imgs/filt-varg-1.jpg';
+import img10 from '../public/shop-imgs/filt-rutig-1.jpg';
+import img11 from '../public/shop-imgs/kudde-tofsar-1.jpg';
+import img12 from '../public/shop-imgs/kudde-linne-1.jpg';
 
 //product array
 export const products = [
@@ -9,11 +20,8 @@ export const products = [
     rating: 4,
     amount: 0,
     sum: 0,
-    img: [img, '/shop-imgs/tomte-vit-2.png', '/shop-imgs/tomte-vit-3.png'],
-    alt: [
-      'tomte i grått och vitt tyg stor spetsig mössa',
-      'tomte i grått och vitt tyg stor spetsig mössa',
-    ],
+    img: [img1],
+    alt: 'tomte i grått och vitt tyg stor spetsig mössa',
     description: 'Mysig tygtomte med fuskpäls',
     category: ['dekoration', 'alla'],
   },
@@ -24,15 +32,8 @@ export const products = [
     rating: 5,
     amount: 0,
     sum: 0,
-    img: [
-      '/shop-imgs/tomtevagn-1.jpg',
-      '/shop-imgs/tomtevagn-2.jpg',
-      '/shop-imgs/tomtevagn-3.jpg',
-    ],
-    alt: [
-      'veteranbil med tomte, i grönt och svart porslin',
-      'veteranbil med tomte, i grönt och svart porslin',
-    ],
+    img: [img2],
+    alt: 'veteranbil med tomte, i grönt och svart porslin',
     description: 'Fin veteranbil med tomte, i porslin.',
     category: ['dekoration', 'alla'],
   },
@@ -43,12 +44,8 @@ export const products = [
     rating: 3,
     amount: 0,
     sum: 0,
-    img: [
-      '/shop-imgs/tomtelykta-1.png',
-      '/shop-imgs/tomtelykta-2.jpg',
-      '/shop-imgs/tomtelykta-3.png',
-    ],
-    alt: ['svampformad ljuslykta i keramik', 'svampformad ljuslykta i keramik'],
+    img: [img3],
+    alt: 'svampformad ljuslykta i keramik',
     description: 'Gullig svampformad ljuslykta i keramik',
     category: ['dekoration', 'belysning', 'alla'],
   },
@@ -59,11 +56,8 @@ export const products = [
     rating: 3,
     amount: 0,
     sum: 0,
-    img: ['/shop-imgs/ljusstake-vit-1.jpg', '/shop-imgs/ljusstake-vit-2.jpg'],
-    alt: [
-      'Ljusstake i vit keramik för 5 ljus',
-      'Ljusstake i vit keramik för 5 ljus',
-    ],
+    img: [img4],
+    alt: 'Ljusstake i vit keramik för 5 ljus',
     description: 'Ljusstake i vit keramik för 5 ljus',
     category: ['belysning', 'dekoration', 'alla'],
   },
@@ -74,8 +68,8 @@ export const products = [
     rating: 5,
     amount: 0,
     sum: 0,
-    img: ['/shop-imgs/ljusstake-gra-1.jpg', '/shop-imgs/ljusstake-gra-2.jpg'],
-    alt: ['Ljusstake för 10 ljus i betong', 'Ljusstake för 10 ljus i betong'],
+    img: [img5],
+    alt: 'Ljusstake för 10 ljus i betong',
     description: 'Ljusstake för 10 ljus i betong',
     category: ['belysning', 'dekoration', 'alla'],
   },
@@ -87,8 +81,8 @@ export const products = [
     rating: 2,
     amount: 0,
     sum: 0,
-    img: ['/shop-imgs/julstjarna-1.png', '/shop-imgs/julstjarna-2.png'],
-    alt: ['Röd julstjärna 100 cm', 'Röd julstjärna 100 cm'],
+    img: [img6],
+    alt: 'Röd julstjärna 100 cm',
     description: 'Röd julstjärna 100 cm',
     category: ['belysning', 'alla'],
   },
@@ -99,12 +93,9 @@ export const products = [
     rating: 5,
     amount: 0,
     sum: 0,
-    img: ['/shop-imgs/julduk-paisely-1.png', '/shop-imgs/julduk-paisely-2.jpg'],
-    alt: [
-      'Röd och beige paisely-mönstrad duk',
-      'Röd och beige paisely-mönstrad duk',
-    ],
-    description: 'Röd och beige paisely-mönstrad duk, 200 x 250 cm    ',
+    img: [img7],
+    alt: 'Röd och beige paisely-mönstrad duk',
+    description: 'Röd och beige paisely-mönstrad duk, 200 x 250 cm',
     category: ['tyger', 'alla'],
   },
   {
@@ -114,12 +105,9 @@ export const products = [
     rating: 2,
     amount: 0,
     sum: 0,
-    img: ['/shop-imgs/julduk-rand-1.png', '/shop-imgs/julduk-rand-2.png'],
-    alt: [
-      'röd linneduk med vita och röda ränder i mitten',
-      'röd linneduk med vita och röda ränder i mitten',
-    ],
-    description: '',
+    img: [img8],
+    alt: 'röd linneduk med vita och röda ränder i mitten',
+    description: 'röd linneduk med vita och röda ränder i mitten',
     category: ['tyger', 'alla'],
   },
   {
@@ -129,15 +117,8 @@ export const products = [
     rating: 4,
     amount: 0,
     sum: 0,
-    img: [
-      '/shop-imgs/filt-varg-1.jpg',
-      '/shop-imgs/filt-varg-2.jpg',
-      '/shop-imgs/filt-varg-3.jpg',
-    ],
-    alt: [
-      'filt i brun och vit fuskpäls, 70 x 150cm',
-      'filt i brun och vit fuskpäls, 70 x 150cm',
-    ],
+    img: [img9],
+    alt: 'filt i brun och vit fuskpäls, 70 x 150cm',
     description: 'Mysig filt i brun och vit fuskpäls, 70 x 150cm',
     category: ['tyger', 'alla'],
   },
@@ -148,13 +129,9 @@ export const products = [
     rating: 1,
     amount: 0,
     sum: 0,
-    img: [
-      '/shop-imgs/filt-rutig-1.jpg',
-      '/shop-imgs/filt-rutig-2.jpg',
-      '/shop-imgs/filt-rutig-3.jpg',
-    ],
-    alt: ['', ''],
-    description: '',
+    img: [img10],
+    alt: 'Röd och grårutig filt i tovad ull',
+    description: 'Röd och grårutig filt i tovad ull',
     category: ['tyger', 'alla'],
   },
   {
@@ -164,12 +141,9 @@ export const products = [
     rating: 1,
     amount: 0,
     sum: 0,
-    img: ['/shop-imgs/kudde-tofsar-1.jpg', '/shop-imgs/kudde-tofsar-2.jpg'],
-    alt: [
-      'mönstrad blå och röd kudde med tofsar i hörnen',
-      'kudde med tofsar blå baksida av kudden',
-    ],
-    description: '',
+    img: [img11],
+    alt: 'mönstrad blå och röd kudde med tofsar i hörnen',
+    description: 'mönstrad blå och röd kudde med tofsar i hörnen',
     category: ['tyger', 'alla'],
   },
   {
@@ -179,13 +153,9 @@ export const products = [
     rating: 4,
     amount: 0,
     sum: 0,
-    img: [
-      '/shop-imgs/kudde-linne-1.jpg',
-      '/shop-imgs/kudde-linne-2.jpg',
-      '/shop-imgs/kudde-linne-3.jpg',
-    ],
-    alt: ['', ''],
-    description: '',
+    img: [img12],
+    alt: 'linnefärgad kudde med julmotiv',
+    description: 'linnefärgad kudde med julmotiv',
     category: ['tyger', 'alla'],
   },
 ];
