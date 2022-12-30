@@ -1,3 +1,5 @@
+import img from '../public/shop-imgs/tomte-vit-1.png';
+
 //product array
 export const products = [
   {
@@ -7,11 +9,7 @@ export const products = [
     rating: 4,
     amount: 0,
     sum: 0,
-    img: [
-      '/shop-imgs/tomte-vit-1.png',
-      '/shop-imgs/tomte-vit-2.png',
-      await import('/src/shop-imgs/tomte-vit-3.png').then(x => x.default),
-    ],
+    img: [img, '/shop-imgs/tomte-vit-2.png', '/shop-imgs/tomte-vit-3.png'],
     alt: [
       'tomte i grått och vitt tyg stor spetsig mössa',
       'tomte i grått och vitt tyg stor spetsig mössa',
@@ -27,9 +25,9 @@ export const products = [
     amount: 0,
     sum: 0,
     img: [
-      'shop-imgs/tomtevagn-1.jpg',
-      '/src/shop-imgs/tomtevagn-2.jpg',
-      '/src/shop-imgs/tomtevagn-3.jpg',
+      '/shop-imgs/tomtevagn-1.jpg',
+      '/shop-imgs/tomtevagn-2.jpg',
+      '/shop-imgs/tomtevagn-3.jpg',
     ],
     alt: [
       'veteranbil med tomte, i grönt och svart porslin',
@@ -46,9 +44,9 @@ export const products = [
     amount: 0,
     sum: 0,
     img: [
-      await import('/src/shop-imgs/tomtelykta-1.png').then(x => x.default),
-      '/src/shop-imgs/tomtelykta-2.jpg',
-      '/src/shop-imgs/tomtelykta-3.png',
+      '/shop-imgs/tomtelykta-1.png',
+      '/shop-imgs/tomtelykta-2.jpg',
+      '/shop-imgs/tomtelykta-3.png',
     ],
     alt: ['svampformad ljuslykta i keramik', 'svampformad ljuslykta i keramik'],
     description: 'Gullig svampformad ljuslykta i keramik',
@@ -61,12 +59,7 @@ export const products = [
     rating: 3,
     amount: 0,
     sum: 0,
-    img: [
-      await import('/public/shop-imgs/ljusstake-vit-1.jpg').then(
-        x => x.default
-      ),
-      '/src/shop-imgs/ljusstake-vit-2.jpg',
-    ],
+    img: ['/shop-imgs/ljusstake-vit-1.jpg', '/shop-imgs/ljusstake-vit-2.jpg'],
     alt: [
       'Ljusstake i vit keramik för 5 ljus',
       'Ljusstake i vit keramik för 5 ljus',
@@ -81,10 +74,7 @@ export const products = [
     rating: 5,
     amount: 0,
     sum: 0,
-    img: [
-      await import('/shop-imgs/ljusstake-gra-1.jpg').then(x => x.default),
-      '/src/shop-imgs/ljusstake-gra-2.jpg',
-    ],
+    img: ['/shop-imgs/ljusstake-gra-1.jpg', '/shop-imgs/ljusstake-gra-2.jpg'],
     alt: ['Ljusstake för 10 ljus i betong', 'Ljusstake för 10 ljus i betong'],
     description: 'Ljusstake för 10 ljus i betong',
     category: ['belysning', 'dekoration', 'alla'],
@@ -97,7 +87,7 @@ export const products = [
     rating: 2,
     amount: 0,
     sum: 0,
-    img: ['/src/shop-imgs/julstjarna-1.png', '/src/shop-imgs/julstjarna-2.png'],
+    img: ['/shop-imgs/julstjarna-1.png', '/shop-imgs/julstjarna-2.png'],
     alt: ['Röd julstjärna 100 cm', 'Röd julstjärna 100 cm'],
     description: 'Röd julstjärna 100 cm',
     category: ['belysning', 'alla'],
@@ -109,10 +99,7 @@ export const products = [
     rating: 5,
     amount: 0,
     sum: 0,
-    img: [
-      '/src/shop-imgs/julduk-paisely-1.png',
-      '/src/shop-imgs/julduk-paisely-2.jpg',
-    ],
+    img: ['/shop-imgs/julduk-paisely-1.png', '/shop-imgs/julduk-paisely-2.jpg'],
     alt: [
       'Röd och beige paisely-mönstrad duk',
       'Röd och beige paisely-mönstrad duk',
@@ -127,10 +114,7 @@ export const products = [
     rating: 2,
     amount: 0,
     sum: 0,
-    img: [
-      '/src/shop-imgs/julduk-rand-1.png',
-      '/src/shop-imgs/julduk-rand-2.png',
-    ],
+    img: ['/shop-imgs/julduk-rand-1.png', '/shop-imgs/julduk-rand-2.png'],
     alt: [
       'röd linneduk med vita och röda ränder i mitten',
       'röd linneduk med vita och röda ränder i mitten',
@@ -146,9 +130,9 @@ export const products = [
     amount: 0,
     sum: 0,
     img: [
-      '/src/shop-imgs/filt-varg-1.jpg',
-      '/src/shop-imgs/filt-varg-2.jpg',
-      '/src/shop-imgs/filt-varg-3.jpg',
+      '/shop-imgs/filt-varg-1.jpg',
+      '/shop-imgs/filt-varg-2.jpg',
+      '/shop-imgs/filt-varg-3.jpg',
     ],
     alt: [
       'filt i brun och vit fuskpäls, 70 x 150cm',
@@ -165,9 +149,9 @@ export const products = [
     amount: 0,
     sum: 0,
     img: [
-      '/src/shop-imgs/filt-rutig-1.jpg',
-      '/src/shop-imgs/filt-rutig-2.jpg',
-      '/src/shop-imgs/filt-rutig-3.jpg',
+      '/shop-imgs/filt-rutig-1.jpg',
+      '/shop-imgs/filt-rutig-2.jpg',
+      '/shop-imgs/filt-rutig-3.jpg',
     ],
     alt: ['', ''],
     description: '',
@@ -180,10 +164,7 @@ export const products = [
     rating: 1,
     amount: 0,
     sum: 0,
-    img: [
-      '/src/shop-imgs/kudde-tofsar-1.jpg',
-      '/src/shop-imgs/kudde-tofsar-2.jpg',
-    ],
+    img: ['/shop-imgs/kudde-tofsar-1.jpg', '/shop-imgs/kudde-tofsar-2.jpg'],
     alt: [
       'mönstrad blå och röd kudde med tofsar i hörnen',
       'kudde med tofsar blå baksida av kudden',
@@ -199,9 +180,9 @@ export const products = [
     amount: 0,
     sum: 0,
     img: [
-      '/src/shop-imgs/kudde-linne-1.jpg',
-      '/src/shop-imgs/kudde-linne-2.jpg',
-      '/src/shop-imgs/kudde-linne-3.jpg',
+      '/shop-imgs/kudde-linne-1.jpg',
+      '/shop-imgs/kudde-linne-2.jpg',
+      '/shop-imgs/kudde-linne-3.jpg',
     ],
     alt: ['', ''],
     description: '',
