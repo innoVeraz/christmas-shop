@@ -8,7 +8,7 @@ då ska "base" här nedan vara "/fed22d-js-grundkurs-jenni-wumpus/"
 
 export default defineConfig({
   server: { host: true },
-  base: '/fed22d-js-grundkurs-2-webbplats-vera83/', // TODO - ändra till ditt repo-namn
+  base: '/christmas-shop/', // TODO - ändra till ditt repo-namn
   define: {
     'process.env': {},
   },
