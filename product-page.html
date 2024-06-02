@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="se">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Produkter</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/fef0a19249.js" crossorigin="anonymous"></script>
+    
+  <script type="module" crossorigin src="/fed22d-js-grundkurs-2-webbplats-vera83/assets/main.39b7770b.js"></script>
+  <link rel="stylesheet" href="/fed22d-js-grundkurs-2-webbplats-vera83/assets/main.bb70a8a3.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <button class="hamburger-menu-icon">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </button>
+            <div class="logo">
+                <a href="index.html"><img src="/fed22d-js-grundkurs-2-webbplats-vera83/shop-imgs/logo-picture.png" alt="" width="200" height="60"></a>
+            </div>
+
+            <div class="cart-icon-wrapper">
+                <div class="cart-item-number"></div>
+                <div class="gift-icon"><i class="fa-solid fa-gift fa-2xl" alt="Varukorgen"></i></div>
+            </div>
+
+        </div>
+    </header>
+
+    <nav class="mobile-nav"></nav>
+    <nav class="desktop-nav"></nav>
+
+    <div class="sorting-wrapper">
+        <label class=" filter-btn" for="filter">
+            <select class="drop-down-filter" name="filter" id="filter">
+                <option selected disabled value="">Sortering</option>
+                <option value="pris-stigande">Pris stigande</option>
+                <option value="pris-fallande">Pris fallande</option>
+                <option value="rating-stigande">Rating stigande</option>
+                <option value="rating-fallande">Rating fallande</option>
+            </select>
+        </label>
+    </div>
+
+    <!-- Product page section. -->
+    <section class="product-container"></section>
+
+    <!-- shopping cart section. -->
+    <section class="shopping-cart">
+        <h2>Varukorgen</h2>
+        <div class="shopping-cart-content"></div>
+        <footer class="shopping-cart-footer"></footer>
+    </section>
+
+    <button class="scroll-to-top-btn">Till toppen</button>
+
+    <footer class="main-footer">
+
+        <a class="footer-link" href="https://goo.gl/maps/Upka1FHzJTjSVr8s8">
+            <ul class="page-adress">
+                <li>Julbutiken AB</li>
+                <li>Hornsgatan 80</li>
+                <li>117 26 Stockholm</li>
+            </ul>
+        </a>
+
+        <ul class="page-contact">
+            <li>Telefon: 08-123 45 67</li>
+            <li>E-mail: julbutiken@gmail.com</li>
+        </ul>
+    </footer>
+
+    
+</body>
+
+</html>
