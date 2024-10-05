@@ -1,15 +1,15 @@
-import img1 from '../public/shop-imgs/tomte-vit-1.png';
-import img2 from '../public/shop-imgs/tomtevagn-1.jpg';
-import img3 from '../public/shop-imgs/tomtelykta-1.png';
-import img4 from '../public/shop-imgs/ljusstake-vit-1.jpg';
-import img5 from '../public/shop-imgs/ljusstake-gra-1.jpg';
-import img6 from '../public/shop-imgs/julstjarna-1.png';
-import img7 from '../public/shop-imgs/julduk-paisely-1.png';
-import img8 from '../public/shop-imgs/julduk-rand-1.png';
-import img9 from '../public/shop-imgs/filt-varg-1.jpg';
-import img10 from '../public/shop-imgs/filt-rutig-1.jpg';
-import img11 from '../public/shop-imgs/kudde-tofsar-1.jpg';
-import img12 from '../public/shop-imgs/kudde-linne-1.jpg';
+import img1 from '/shop-imgs/tomte-vit-1.png';
+import img2 from '/shop-imgs/tomtevagn-1.jpg';
+import img3 from '/shop-imgs/tomtelykta-1.png';
+import img4 from '/shop-imgs/ljusstake-vit-1.jpg';
+import img5 from '/shop-imgs/ljusstake-gra-1.jpg';
+import img6 from '/shop-imgs/julstjarna-1.png';
+import img7 from '/shop-imgs/julduk-paisely-1.png';
+import img8 from '/shop-imgs/julduk-rand-1.png';
+import img9 from '/shop-imgs/filt-varg-1.jpg';
+import img10 from '/shop-imgs/filt-rutig-1.jpg';
+import img11 from '/shop-imgs/kudde-tofsar-1.jpg';
+import img12 from '/shop-imgs/kudde-linne-1.jpg';
 
 //product array
 export const products = [

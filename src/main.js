@@ -3,9 +3,15 @@ const hamburgerButton = document.querySelector('.hamburger-menu-icon');
 const mobileNav = document.querySelector('.mobile-nav');
 const desktopNav = document.querySelector('.desktop-nav');
 const scrollToTopBtn = document.querySelector('.scroll-to-top-btn');
+const viewAllProductsBtn = document.querySelector('.view-all-products-btn');
 
 hamburgerButton?.addEventListener('click', toggleHamburger);
 scrollToTopBtn?.addEventListener('click', scrollToTop);
+viewAllProductsBtn?.addEventListener('click', goToAllProducts);
+
+function goToAllProducts() {
+  window.location.href = 'product-page.html';
+}
 
 if (desktopNav && mobileNav) {
   renderNavigation();

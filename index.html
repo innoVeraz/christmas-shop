@@ -14,7 +14,7 @@
 </head>
 
 <body>
-
+  <!-- header -->
   <header>
     <div class="header-content">
       <button class="hamburger-menu-icon">
@@ -23,37 +23,21 @@
         <div class="bar3"></div>
       </button>
       <div class="logo">
-        <a href="index.html"><img src="/shop-imgs/logo-picture.png" alt="" width="200" height="60"></a>
+        <a href="index.html">
+          <p>Julprylar</p>
+        </a>
       </div>
       <div class="cart-icon-wrapper">
         <div class="cart-item-number"></div>
-        <div class="gift-icon"><i class="fa-solid fa-gift fa-2xl" alt="Varukorgen"></i></div>
+        <div class="gift-icon"><i class="fa-solid fa-gift fa-xl" alt="Varukorgen"></i></div>
       </div>
     </div>
   </header>
 
+  <!-- navigation -->
   <nav class="mobile-nav"></nav>
   <nav class="desktop-nav"></nav>
 
-  <main class="main-content">
-    <div class="welcome">
-      <h1>Välkommen in!
-      </h1>
-      <p>Handplockade julfavoriter för ditt hem.</p>
-    </div>
-    <div class="rebate-box-wrapper">
-      <div class="rebate-content">
-        <h3 class="rebate-headline">RABATT!</h3>
-        <p>Få 24% rabatt med koden:</p>
-        <h3 class="rebate-code">Jule-tid-22</h3>
-        <p>Fyll i koden när du kommer till kassan</p>
-      </div>
-    </div>
-
-    <div class="lights"><a href="product-page.html?category=belysning">belysning</a></div>
-    <div class="santas"> <a href="product-page.html?category=dekoration">dekoration</a></div>
-    <div class="pyssel"></div>
-  </main>
   <!-- shopping cart section. -->
   <section class="shopping-cart">
     <h2>Varukorgen</h2>
@@ -61,27 +45,34 @@
     <footer class="shopping-cart-footer"></footer>
   </section>
 
+  <!-- main content -->
+  <section class="main-content">
+    <p>AUTUMNDEAL
+      Upp till 25% rabatt på din beställning.
+      Använd kod:AUTUMNDEAL
+      *Gäller på varor märka med AUTUMNDEAL när du handlar 2 eller fler varor t.o.m. 8/10. Se fullständiga villkor i
+      kassan.</p>
+    <button class="view-all-products-btn">Visa alla produkter</button>
+    <!-- scroll button -->
+    <button class="scroll-to-top-btn">Till toppen</button>
 
-  <button class="scroll-to-top-btn">Till toppen</button>
+    <!-- footer -->
+    <footer class="main-footer">
+      <a class="footer-link" href="https://goo.gl/maps/Upka1FHzJTjSVr8s8">
+        <ul class="page-adress">
+          <li>Julbutiken AB</li>
+          <li>Hornsgatan 80</li>
+          <li>117 26 Stockholm</li>
+        </ul>
+      </a>
 
-  <!-- footer -->
-  <footer class="main-footer">
-
-    <a class="footer-link" href="https://goo.gl/maps/Upka1FHzJTjSVr8s8">
-      <ul class="page-adress">
-        <li>Julbutiken AB</li>
-        <li>Hornsgatan 80</li>
-        <li>117 26 Stockholm</li>
+      <ul class="page-contact">
+        <li>Telefon: 08-123 45 67</li>
+        <li>E-mail: julbutiken@gmail.com</li>
       </ul>
-    </a>
+    </footer>
 
-    <ul class="page-contact">
-      <li>Telefon: 08-123 45 67</li>
-      <li>E-mail: julbutiken@gmail.com</li>
-    </ul>
-  </footer>
-
-  <script type="module" src="src/main.js"></script>
+    <script type="module" src="src/main.js"></script>
 </body>
 
 </html>

@@ -1,12 +1,80 @@
+/* stylelint-disable no-descending-specificity */
 @use 'utils/a11y'; // Om det inte funkar, byt @use mot @import
 @use 'vendor/reset';
+
+@font-face {
+  font-family: Gliker;
+  src: url('/fonts/gliker-font/Gliker-Bold.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+}
 
 $mobile-breakpoint: 480px;
 $font-weight: 400;
 
 body {
   font-family: Roboto, sans-serif;
+  background-color: #5b9981;
+  position: relative;
+  color: #fffbee;
 }
+
+header {
+  background-color: #5b9981;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+
+  .header-content {
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    max-width: 840px;
+    margin: auto;
+    width: 100%;
+  }
+}
+
+.logo {
+  p {
+    font-family: Gliker, sans-serif;
+    font-size: 1.5rem;
+    color: #fffbee;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 100px); /* Adjust based on your header/nav height */
+  padding-top: 20px; /* Optional, adds space between header and button */
+}
+
+.view-all-products-btn {
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: rgb(20, 109, 86);
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.view-all-products-btn:hover {
+  background-color: #9fa19f;
+}
+
+$mobile-breakpoint: 480px;
+$font-weight: 400;
 
 //top-navigation
 .hamburger-menu-icon {
@@ -49,7 +117,7 @@ body {
   top: 100px;
   left: 0;
   right: 0;
-  background-color: rgb(126, 124, 121);
+  background-color: #5b9981;
   justify-content: space-around;
   padding: 5px;
   text-transform: uppercase;
@@ -58,13 +126,10 @@ body {
   }
 
   ul {
-    padding: 0;
     list-style-type: none;
     display: flex;
-    justify-content: space-around;
-    max-width: 1000px;
+    gap: 2rem;
     margin: auto;
-    width: 100%;
   }
 
   a {
@@ -72,7 +137,7 @@ body {
     text-decoration: none;
     color: white;
     @media screen and (min-width: $mobile-breakpoint) {
-      font-size: 1.2rem;
+      font-size: 1rem;
     }
 
     &.active {
@@ -115,25 +180,6 @@ body {
   }
 }
 
-header {
-  background-color: white;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding: 20px;
-
-  .header-content {
-    justify-content: space-between;
-    display: flex;
-    align-items: center;
-    max-width: 1000px;
-    margin: auto;
-    width: 100%;
-  }
-}
-
 .cart-icon-wrapper {
   display: flex;
   gap: 10px;
@@ -142,130 +188,6 @@ header {
   .cart-item-number {
     font-size: 1.5rem;
   }
-}
-
-//hero content
-.main-content {
-  max-width: 997px;
-  margin: auto;
-  width: 100%;
-  display: grid;
-  grid-template-rows: auto repeat(4, 1fr);
-  gap: 10px;
-  padding: 0 10px;
-  padding-bottom: 10px;
-  margin-top: 150px;
-  @media screen and (min-width: $mobile-breakpoint) {
-    grid-template-rows: 200px 400px 400px;
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-.welcome {
-  background-image: url('../../public/shop-imgs/hero-img.jpg');
-  background-repeat: no-repeat;
-  background-position: top;
-  background-size: cover;
-  grid-column: 1 / -1;
-  padding: 40px;
-
-  h1 {
-    text-transform: uppercase;
-    text-shadow: rgb(9, 9, 9) 2px 0 20px;
-    font-size: 1.2rem;
-    text-align: center;
-    color: white;
-    line-height: 60px;
-    font-weight: $font-weight;
-    @media screen and (min-width: $mobile-breakpoint) {
-      font-size: 2rem;
-    }
-  }
-
-  p {
-    color: white;
-    text-shadow: rgb(9, 9, 9) 2px 0 20px;
-    text-align: center;
-    font-size: 0.9rem;
-    @media screen and (min-width: $mobile-breakpoint) {
-      font-size: 1.5rem;
-    }
-  }
-}
-
-.rebate-box-wrapper {
-  display: grid;
-  align-items: center;
-  background-color: rgb(114, 142, 65);
-  color: white;
-  text-shadow: rgb(31, 63, 19) 2px 0 20px;
-  text-align: center;
-  line-height: 1.3rem;
-  padding: 30px;
-
-  .rebate-content {
-    font-size: 1rem;
-    line-height: 2rem;
-  }
-
-  .rebate-headline {
-    @media screen and (min-width: $mobile-breakpoint) {
-      font-size: 2rem;
-    }
-  }
-
-  .rebate-code {
-    font-size: 1.5rem;
-    padding: 20px 0;
-    color: rgb(249, 213, 122);
-    text-shadow: rgb(242, 249, 46) 2px 0 20px;
-    @media screen and (min-width: $mobile-breakpoint) {
-      font-size: 2rem;
-    }
-  }
-}
-
-.lights,
-.santas {
-  display: grid;
-  align-items: center;
-  text-shadow: rgb(9, 9, 9) 2px 0 20px;
-  font-size: 1.5rem;
-  text-align: center;
-  text-transform: uppercase;
-  @media screen and (min-width: $mobile-breakpoint) {
-    font-size: 3rem;
-  }
-
-  a {
-    color: white;
-    text-decoration: none;
-
-    &:hover {
-      color: grey;
-    }
-  }
-}
-
-.santas {
-  background-image: url('../../public/shop-imgs/tomtar-start-page.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-
-.lights {
-  background-image: url('../../public/shop-imgs/belysning-img.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-
-.pyssel {
-  background-image: url('../../public/shop-imgs/pyssel-bild.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
 }
 
 .scroll-to-top-btn {
@@ -285,16 +207,17 @@ header {
 }
 
 .main-footer {
-  display: flex;
-  flex-wrap: wrap;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   gap: 10px;
   padding: 20px;
-  background-color: rgb(130, 3, 3);
-  color: white;
+  background-color: #fffbee;
+  color: #2e7669;
 
   .footer-link {
     text-decoration: none;
-    color: white;
+    color: #2e7669;
   }
 
   @media screen and (min-width: $mobile-breakpoint) {
@@ -302,7 +225,7 @@ header {
   }
 
   ul {
-    color: white;
+    color: #13312c;
     list-style-type: none;
     padding: 0;
   }
@@ -312,7 +235,7 @@ header {
   padding: 0;
 
   &:hover {
-    color: grey;
+    color: #2e7669;
   }
 }
 
@@ -430,7 +353,7 @@ header {
   max-width: 500px;
   width: 100%;
   margin-top: 80px;
-  padding: 0 20px 20px;
+  padding: 0 20px;
   font-size: 1rem;
   height: 0;
   transition: height 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
