@@ -16,12 +16,12 @@ function renderProducts(sorting) {
     .forEach(product => {
       productEl.innerHTML += `
     <article class="product-information">
-      <img loading="lazy" src="${product.img[0]}" alt="" width="" height="200">
+      <img loading="lazy" src="${product.img[0]}" alt="${product.alt}">
       <div class="rating-and-price">
-      <span>${product.price} kr</span>
       ${renderRating(product.rating)}
       </div>
       <h3>${product.name}</h3>
+      <div class="price">${product.price} SEK</div>
       <button class="add-to-cart" data-id="${product.id}">Lägg till</button>
     </article>`;
     });

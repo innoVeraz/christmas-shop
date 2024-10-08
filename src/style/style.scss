@@ -60,15 +60,6 @@ body {
 header {
   background-color: $primary-green;
 
-  .header-content {
-    display: flex;
-    justify-content: space-around;
-    padding-top: 1rem;
-    align-items: center;
-    max-width: 540px;
-    margin: auto;
-  }
-
   .logo {
     font-family: $header-font;
     font-size: $font-size-medium;
@@ -80,14 +71,13 @@ header {
     }
   }
 
-  @media screen and (min-width: $tablet-breakpoint) {
-    .header-content {
-      max-width: 1340px;
-    }
-
-    .logo {
-      font-size: $font-size-large;
-    }
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    align-items: center;
+    max-width: 1080px;
+    margin: auto;
   }
 }
 
@@ -368,6 +358,9 @@ header {
 }
 
 .sort-wrapper {
+  max-width: 1080px;
+  margin: auto;
+  text-align: right;
 }
 
 .sort-btn {
@@ -383,70 +376,47 @@ header {
 
 //product card section
 .product-container {
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   padding: $padding-medium $padding-small;
   width: 100%;
+  max-width: 1080px;
+  margin: auto;
   display: grid;
   gap: $padding-medium;
 
-  @media screen and (min-width: $mobile-breakpoint) {
-    grid-template-columns: repeat(3, 1fr);
-    padding: $padding-medium $padding-small;
-    max-width: 1340px;
-    margin: auto;
-    width: 100%;
-    display: grid;
-    gap: $padding-medium;
-  }
+  // @media screen and (min-width: $mobile-breakpoint) {
+  //   .product-container {
+  //     grid-template-columns: repeat(3, 1fr);
+  //     padding: 3rem;
+  //     max-width: 1340px;
+  //     margin: auto;
+  //     width: 100%;
+  //     display: grid;
+  //     gap: 3rem;
+  //   }
+  // }
 }
 
 .product-information {
   display: grid;
-  grid-template-rows: 1fr auto;
-  align-items: end;
-  border: 1px solid rgb(186, 183, 183);
-  border-radius: 5px;
-  padding: $padding-small;
+  gap: 1rem;
+  text-align: left;
 
   h3 {
     font-weight: $font-weight-normal;
-    padding-top: $padding-large;
-    padding-bottom: $padding-small;
-    text-align: center;
     font-size: $font-size-medium;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
-  .rating-and-price {
-    padding-top: $padding-large;
-  }
-
-  span {
-    padding: $padding-small;
-    margin-right: $margin-medium;
-    margin-top: $margin-small;
-    inline-size: fit-content;
-    background-color: $accent-color;
-    color: $text-light;
-  }
-
   .color-rating {
-    padding: $padding-small;
     border-radius: $button-border-radius;
-    color: rgb(217, 199, 3);
+    color: rgb(255, 255, 255);
   }
 
   .rating-color-none {
-    font-size: $font-size-small;
-    color: rgb(210, 205, 205);
-  }
-
-  img {
-    max-height: 200px;
-    width: auto;
-    justify-self: center;
+    color: rgb(180, 180, 180);
   }
 }
 
@@ -732,24 +702,26 @@ header {
 
 // Footer styles
 .main-footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  gap: $margin-small;
   padding: $padding-medium;
   background-color: white;
   color: #2e7669;
+
+  .main-footer-content {
+    max-width: 1080px;
+    margin: auto;
+  }
 
   a {
     text-decoration: none;
   }
 
-  .footer-icon-wrap {
+  .main-footer-logo-content {
     display: flex;
+    flex-direction: column;
     align-items: center; /* Vertically centers the content */
   }
 
-  .footer-icon-wrap a {
+  .main-footer-logo-content a {
     display: flex;
     align-items: center; /* Ensures the image and text are vertically aligned */
     text-decoration: none; /* Remove underline on the link */
