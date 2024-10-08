@@ -5,7 +5,6 @@ const desktopNav = document.querySelector('.desktop-nav');
 const scrollToTopBtn = document.querySelector('.scroll-to-top-btn');
 const viewAllProductsBtn = document.querySelector('.view-all-products-btn');
 
-hamburgerButton?.addEventListener('click', toggleHamburger);
 scrollToTopBtn?.addEventListener('click', scrollToTop);
 viewAllProductsBtn?.addEventListener('click', goToAllProducts);
 
@@ -18,10 +17,22 @@ if (desktopNav && mobileNav) {
   setActive();
 }
 
-function toggleHamburger(event) {
-  event.currentTarget.classList.toggle('change');
-  mobileNav.classList.toggle('open');
+hamburgerButton?.addEventListener('click', event => {
+  event.stopPropagation();
+  mobileNav.classList.add('open');
+});
+
+function onClickOutside(element, callback) {
+  document.addEventListener('click', event => {
+    if (!element.contains(event.target)) {
+      callback();
+    }
+  });
 }
+
+onClickOutside(mobileNav, () => {
+  mobileNav.classList.remove('open');
+});
 
 function setActive() {
   const links = [
@@ -37,12 +48,14 @@ function setActive() {
 }
 
 function renderNavigation() {
-  const navigation = `
+  const navigation = ` <h3 class="nav-header">Kategorier</h3>
     <ul>
-      <li><a href="product-page.html">alla produkter</a></li>
-      <li><a href="product-page.html?category=dekoration">dekoration</a></li>
-      <li><a href="product-page.html?category=belysning">belysning</a></li>
-      <li><a href="product-page.html?category=tyger">tyger</a></li>
+      <li><a href="product-page.html">Alla produkter</a></li>
+      <li><a href="product-page.html?category=belysning">Belysning</a></li>
+      <li><a href="product-page.html?category=dekoration">Dekoration</a></li>
+      <li><a href="product-page.html?category=krukor">Krukor</a></li>
+      <li><a href="product-page.html?category=leksaker">Leksaker</a></li>
+      <li><a href="product-page.html?category=tyger">Tyger</a></li>
     </ul>`;
 
   mobileNav.innerHTML = navigation;
@@ -82,8 +95,7 @@ function checkPosition() {
   scrollPos = windowY;
 }
 
-// SHOPPING CART
-
+// Shopping cart
 const cartItemsEl = document.querySelector('.shopping-cart');
 const cartContent = document.querySelector('.shopping-cart-content');
 const cartFooterEl = document.querySelector('.shopping-cart-footer');
@@ -146,6 +158,7 @@ function renderCartItems() {
       </article>
       `;
   });
+
   // quick rewrite since onclick=myFunction does not work in module
   const minusBtns = document.querySelectorAll('.minus-btn');
   const plusBtns = document.querySelectorAll('.plus-btn');
@@ -225,7 +238,7 @@ function changeNumberOfUnits(action, id) {
 
 const productEl = document.querySelector('.product-container');
 const category = window.location.search.split('?category=')[1] || 'alla';
-const sortingEl = document.querySelector('.drop-down-filter');
+const sortingEl = document.querySelector('.drop-down-sort');
 
 sortingEl?.addEventListener('change', onSortingChange);
 

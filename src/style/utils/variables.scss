@@ -9,7 +9,7 @@ $yellow: #f9e698;
 $hover-color: #9fa19f;
 $background-color: rgb(250, 246, 246);
 $text-color: #13312c;
-$text-light: white;
+$text-light: #fffbee;
 $text-dark: black;
 $success-color: #5cb85c;
 
@@ -24,12 +24,15 @@ $font-weight-normal: 400;
 $font-weight-bold: 700;
 $font-weight-extra-bold: 900;
 
-$button-bg-color: rgb(20, 109, 86);
+$mobile-breakpoint: 480px;
+$font-weight: 400;
+
+$button-bg-color: #246459;
 $button-hover-bg-color: rgb(79, 76, 76);
 $button-active-bg-color: rgb(53, 51, 51);
 $button-text-color: white;
-$button-padding: 10px 20px;
-$button-border-radius: 5px;
+$button-padding-large: 20px 30px;
+$button-border-radius: 25px;
 $scroll-btn-bg: rgb(20, 109, 86);
 $scroll-btn-radius: 50%;
 $scroll-btn-hover-bg: rgb(79, 76, 76);
