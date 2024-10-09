@@ -84,12 +84,17 @@ header {
 // Main content mobile
 .main-content {
   padding: 1rem 2rem;
+  position: relative;
 
   .ornament-img {
-    width: 300px;
+    width: 200px;
   }
 
   .ornament-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -103,17 +108,17 @@ header {
   .hero-text-wrap {
     display: flex;
     flex-direction: column;
-    gap: 2.5rem;
+    gap: 4rem;
     text-align: center;
-    margin-top: 2rem;
+    margin-top: 6rem;
 
     h2 {
       font-size: 2rem;
-      font-weight: $font-weight-normal;
+      font-weight: $font-weight-bold;
     }
 
     p {
-      line-height: 1.5rem;
+      font-size: 1.5rem;
     }
   }
 
@@ -123,7 +128,7 @@ header {
     gap: 1rem;
     max-width: fit-content;
     margin: auto;
-    padding: 0.3rem 2rem;
+    padding: 0.3rem 4rem;
     font-size: 20px;
     background-color: $button-bg-color;
     color: $text-light;
