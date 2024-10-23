@@ -4,9 +4,80 @@ const mobileNav = document.querySelector('.mobile-nav');
 const desktopNav = document.querySelector('.desktop-nav');
 const scrollToTopBtn = document.querySelector('.scroll-to-top-btn');
 const viewAllProductsBtn = document.querySelector('.view-all-products-btn');
+const closeCartBtn = document.querySelector('.close-cart-btn');
+
+const sound = document.getElementById('button-sound');
+const placeOrderBtn = document.getElementById('placeOrderBtn');
 
 scrollToTopBtn?.addEventListener('click', scrollToTop);
 viewAllProductsBtn?.addEventListener('click', goToAllProducts);
+placeOrderBtn?.addEventListener('click', placeOrder);
+closeCartBtn?.addEventListener('click', closeCart);
+
+function closeCart() {
+  cartItemsEl.classList.remove('open');
+}
+
+// Function to fade out the sound
+function fadeOutSound(audio, duration) {
+  let volume = audio.volume;
+  const fadeDuration = duration || 2000;
+  const fadeInterval = 50;
+  const fadeStep = volume / (fadeDuration / fadeInterval);
+
+  const fade = setInterval(() => {
+    if (volume > 0) {
+      volume = Math.max(0, volume - fadeStep);
+      audio.volume = volume;
+    } else {
+      clearInterval(fade);
+      audio.pause();
+      audio.currentTime = 0;
+    }
+  }, fadeInterval);
+}
+
+function playShortSoundWithFade() {
+  if (sound) {
+    sound.volume = 1;
+    sound.currentTime = 0;
+    sound.play().catch(error => {
+      console.error('Error playing the sound:', error);
+    });
+
+    setTimeout(() => {
+      fadeOutSound(sound, 2000);
+    }, 1000);
+  }
+}
+
+// Function that handles the order placement
+function placeOrder() {
+  if (emailIsOk && nameIsOk && adressIsOk && zipIsOk && cityIsOk) {
+    showToast(
+      'Tack för din beställning! Vi skickar en bekräftelse till din e-post när klapparna är på väg. God Jul!'
+    );
+    clearOrder();
+    playShortSoundWithFade();
+  }
+}
+//Toast
+function showToast(message) {
+  const toastContainer = document.getElementById('toast-container');
+  const toast = document.createElement('div');
+  toast.classList.add('toast');
+
+  toast.innerHTML = `
+    <i class="fa fa-check-circle"></i>
+    ${message}
+  `;
+
+  toastContainer.appendChild(toast);
+
+  setTimeout(() => {
+    toast.remove();
+  }, 20000);
+}
 
 function goToAllProducts() {
   window.location.href = 'product-page.html';
@@ -47,6 +118,7 @@ function setActive() {
   }
 }
 
+// Navigation
 function renderNavigation() {
   const navigation = ` <h3 class="nav-header">Kategorier</h3>
     <ul>
@@ -62,37 +134,9 @@ function renderNavigation() {
   desktopNav.innerHTML = navigation;
 }
 
-// scroll button
+// scroll to top button
 function scrollToTop() {
   window.scrollTo(0, 0);
-}
-
-// scroll to hide desktop nav
-let scrollPos = 0;
-const nav = document.querySelector('.desktop-nav');
-window.addEventListener('scroll', checkPosition);
-
-function checkPosition() {
-  if (!nav) {
-    return;
-  }
-  if (window.innerWidth < 481) {
-    nav.classList.add('hidden');
-    return;
-  }
-  let windowY = window.scrollY;
-  if (windowY < scrollPos) {
-    // Scrolling UP
-    nav.classList.add('is-visible');
-    nav.classList.remove('hidden');
-    console.log('scrolling up');
-  } else {
-    // Scrolling DOWN
-    nav.classList.add('hidden');
-    nav.classList.remove('is-visible');
-    console.log('scrolling down');
-  }
-  scrollPos = windowY;
 }
 
 // Shopping cart
@@ -102,7 +146,7 @@ const cartFooterEl = document.querySelector('.shopping-cart-footer');
 const cartIcon = document.querySelector('.gift-icon');
 const cartNumber = document.querySelector('.cart-item-number');
 
-let cart = JSON.parse(localStorage.getItem('CART')) || []; //cart array with local storage
+let cart = JSON.parse(localStorage.getItem('CART')) || [];
 
 cartIcon?.addEventListener('click', openCart);
 
@@ -140,13 +184,13 @@ function renderCartItems() {
   cartContent.innerHTML = '';
   cart.forEach(item => {
     cartContent.innerHTML += `
-    
+   
       <article class="cart-item-wrapper">
         <div class="cart-img"><img src="${item.img[0]}" width="auto" height="200" alt="${item.name}"></div>
         
         <div class="cart-details-wrapper">
           <button class="trash-can" data-id="${item.id}"><i class="fa-regular fa-trash-can"></i></button>
-          <p class="item-name">${item.name}</p>
+         
           <div class="cart-btns-wrapper">
             <button class="minus-btn" data-id="${item.id}" type="button">-</button>
             <div class="units">${item.numberOfUnits}</div>
@@ -184,9 +228,9 @@ function renderSubtotal(rebate = false) {
   });
   let rebateHtml = '';
   if (rebate) {
-    totalPrice = totalPrice * 0.76;
+    totalPrice = totalPrice * 0.8;
     rebateHtml = `  <div>Rabatt:</div>
-    <div class="rebate-amount-number">- 24%</div>`;
+    <div class="rebate-amount-number">- 20%</div>`;
   }
   const sum = totalPrice + delivery;
   cartFooterEl.innerHTML = `
@@ -195,8 +239,8 @@ function renderSubtotal(rebate = false) {
   ${rebateHtml}
   <div>Leverans:</div>
   <div>${delivery.toFixed(2)}</div>
-  <div>Summa:</div>
-  <div>${sum.toFixed(2)}</div>
+  <div>Totalt att betala:</div>
+  <div><strong>${sum.toFixed(2)}</strong></div>
   <a class="go-to-checkout" href="checkout.html">Gå till kassan</a>
   
   `;
@@ -345,14 +389,12 @@ function clearOrder() {
   cityField.value = '';
 }
 
-//orderBtn.addEventListener('change');
-
 //rabattlogik
 const rebateField = document.querySelector('#rebate-code');
 let rebateMessage = document.querySelector('#rebate-message');
 useRebateBtn?.addEventListener('click', checkRebate);
 function checkRebate() {
-  if (rebateField.value === 'Jule-tid-22') {
+  if (rebateField.value === 'jul-2024') {
     rebateMessage.innerHTML = `Du har fått rabatt!`;
     rebateMessage.style.color = 'green';
     renderSubtotal(true);
@@ -371,7 +413,6 @@ function checkEmail() {
     emailIsOk = false;
     emailField.style.borderColor = 'red';
   }
-  enableOrderBtn();
 }
 
 function checkName() {

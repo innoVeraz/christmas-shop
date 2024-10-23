@@ -41,7 +41,7 @@ const rebateField = document.querySelector('#rebate-code');
 let rebateMessage = document.querySelector('#rebate-message');
 useRebateBtn.addEventListener('click', checkRebate);
 function checkRebate() {
-  if (rebateField.value === 'Jule-tid-22') {
+  if (rebateField.value === 'jul-2024') {
     rebateMessage.innerHTML = `Du har fått rabatt!`;
     rebateMessage.style.color = 'green';
     renderSubtotal(true);

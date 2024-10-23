@@ -36,13 +36,12 @@ function renderCartItems() {
   cartContent.innerHTML = '';
   cart.forEach(item => {
     cartContent.innerHTML += `
-    
       <article class="cart-item-wrapper">
+      <h2 class="cart-headline">Varukorgen</h2> 
         <div class="cart-img"><img src="${item.img[0]}" width="auto" height="200" alt="${item.name}"></div>
-        
         <div class="cart-details-wrapper">
           <button class="trash-can" data-id="${item.id})"><i class="fa-regular fa-trash-can"></i></button>
-          <p class="item-name">${item.name}</p>
+      
           <div class="cart-btns-wrapper">
             <button class="minus-btn" data-id="${item.id}" type="button">-</button>
             <div class="units">${item.numberOfUnits}</div>
