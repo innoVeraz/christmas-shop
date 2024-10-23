@@ -76,7 +76,7 @@ function showToast(message) {
 
   setTimeout(() => {
     toast.remove();
-  }, 20000);
+  }, 3000);
 }
 
 function goToAllProducts() {
