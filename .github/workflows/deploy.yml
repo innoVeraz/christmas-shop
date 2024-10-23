@@ -18,9 +18,9 @@ jobs:
           fetch-depth: 0
 
       - name: Setup PNPM
-        uses: pnpm/action-setup@v2.2.4
+        uses: pnpm/action-setup@v4
         with:
-          version: 9.12.2
+          version: 9
 
       - name: Install dependencies
         run: pnpm install
