@@ -333,8 +333,8 @@ function renderRating(rating) {
   return html;
 }
 
-function onSortingChange() {
-  renderProducts(this.value);
+function onSortingChange(event) {
+  renderProducts(event.target.value);
 }
 
 function sortProducts(a, b, sorting) {

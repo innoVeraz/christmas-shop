@@ -26,8 +26,8 @@ function renderProducts(sorting) {
     </article>`;
     });
   document.querySelectorAll('.add-to-cart').forEach(el => {
-    el.addEventListener('click', function () {
-      addToCart(parseInt(this.dataset.id));
+    el.addEventListener('click', function (event) {
+      addToCart(parseInt(event.currentTarget.dataset.id));
     });
   });
 }
@@ -49,8 +49,8 @@ function renderRating(rating) {
   return html;
 }
 
-function onSortingChange() {
-  renderProducts(this.value);
+function onSortingChange(event) {
+  renderProducts(event.target.value);
 }
 
 function sortProducts(a, b, sorting) {
