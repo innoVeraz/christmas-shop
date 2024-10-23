@@ -4,7 +4,7 @@ const mobileNav = document.querySelector('.mobile-nav');
 const desktopNav = document.querySelector('.desktop-nav');
 const scrollToTopBtn = document.querySelector('.scroll-to-top-btn');
 const viewAllProductsBtn = document.querySelector('.view-all-products-btn');
-const closeCartBtn = document.querySelector('.close-cart-btn');
+const closeCartBtn = document.querySelector('.close-cart');
 
 const sound = document.getElementById('button-sound');
 const placeOrderBtn = document.getElementById('placeOrderBtn');
