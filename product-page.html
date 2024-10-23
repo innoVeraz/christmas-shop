@@ -11,12 +11,15 @@
         rel="stylesheet">
     <script src="https://kit.fontawesome.com/fef0a19249.js" crossorigin="anonymous"></script>
     
-  <script type="module" crossorigin src="/christmas-shop/assets/main.39b7770b.js"></script>
-  <link rel="stylesheet" href="/christmas-shop/assets/main.2128ade2.css">
+  <script type="module" crossorigin src="/christmas-shop/assets/main.be79f670.js"></script>
+  <link rel="stylesheet" href="/christmas-shop/assets/main.0f5390c3.css">
 </head>
 
 <body>
     <header>
+        <div class="offer-row">
+            <p>Just nu! 20% rabatt på allt med koden <strong>jul-2024</strong> </p>
+        </div>
         <div class="header-content">
             <button class="hamburger-menu-icon">
                 <div class="bar1"></div>
@@ -24,23 +27,24 @@
                 <div class="bar3"></div>
             </button>
             <div class="logo">
-                <a href="index.html"><img src="/christmas-shop/shop-imgs/logo-picture.png" alt="" width="200" height="60"></a>
+                <a href="/index.html">
+                    <h1>Julprylar</h1>
+                </a>
             </div>
-
             <div class="cart-icon-wrapper">
                 <div class="cart-item-number"></div>
-                <div class="gift-icon"><i class="fa-solid fa-gift fa-2xl" alt="Varukorgen"></i></div>
+                <div class="gift-icon"><i class="fa-solid fa-gift fa-xl" alt="Varukorgen"></i></div>
             </div>
-
         </div>
+        <!-- navigation -->
+        <nav class="mobile-nav"></nav>
+        <nav class="desktop-nav"></nav>
     </header>
 
-    <nav class="mobile-nav"></nav>
-    <nav class="desktop-nav"></nav>
 
-    <div class="sorting-wrapper">
-        <label class=" filter-btn" for="filter">
-            <select class="drop-down-filter" name="filter" id="filter">
+    <div class="sort-wrapper">
+        <label class=" sort-btn" for="sort">
+            <select class="drop-down-sort" name="sort" id="sort">
                 <option selected disabled value="">Sortering</option>
                 <option value="pris-stigande">Pris stigande</option>
                 <option value="pris-fallande">Pris fallande</option>
@@ -55,7 +59,7 @@
 
     <!-- shopping cart section. -->
     <section class="shopping-cart">
-        <h2>Varukorgen</h2>
+        <h2>Varukorgen <span id="close-cart" class="close-cart"><i class="fa-regular fa-circle-xmark"></i></span></h2>
         <div class="shopping-cart-content"></div>
         <footer class="shopping-cart-footer"></footer>
     </section>
@@ -63,19 +67,30 @@
     <button class="scroll-to-top-btn">Till toppen</button>
 
     <footer class="main-footer">
+        <div class="main-footer-content">
+            <div class="main-footer-logo-content">
+                <a href="index.html">
+                    <div>
+                        <img src="/christmas-shop/svgator-christmas-icon-set/ornament.gif" alt="Ornament" width="50px">
+                    </div>
+                    <div>
+                        <p class="footer-logo">Julprylar</p>
+                    </div>
+                </a>
+            </div>
+            <a class="footer-link" href="https://goo.gl/maps/Upka1FHzJTjSVr8s8">
+                <ul class="page-adress">
+                    <li>Julprylar & Co AB</li>
+                    <li>Hornsgatan 80</li>
+                    <li>117 26 Stockholm</li>
+                </ul>
+            </a>
 
-        <a class="footer-link" href="https://goo.gl/maps/Upka1FHzJTjSVr8s8">
-            <ul class="page-adress">
-                <li>Julbutiken AB</li>
-                <li>Hornsgatan 80</li>
-                <li>117 26 Stockholm</li>
+            <ul class="page-contact">
+                <li>Telefon: 08-123 45 67</li>
+                <li>E-mail: julprylar@gmail.com</li>
             </ul>
-        </a>
-
-        <ul class="page-contact">
-            <li>Telefon: 08-123 45 67</li>
-            <li>E-mail: julbutiken@gmail.com</li>
-        </ul>
+        </div>
     </footer>
 
     
