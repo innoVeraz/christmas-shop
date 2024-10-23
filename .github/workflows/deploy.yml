@@ -13,31 +13,21 @@ jobs:
         node-version: [20]
 
     steps:
-      # Steg 1: Checka ut koden från ditt repository
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
-      # Steg 2: Installera Node.js
-      - name: Setup Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v2.2.4
         with:
-          node-version: ${{ matrix.node-version }}
-          cache: pnpm
+          version: 9.12.2
 
-      # Steg 3: Installera PNPM via NPM
-      - name: Install PNPM
-        run: npm install -g pnpm@9.12.2
-
-      # Steg 4: Installera beroenden med PNPM
       - name: Install dependencies
         run: pnpm install
 
-      # Steg 5: Bygg projektet
       - name: Build
         run: pnpm run build
 
-      # Steg 6: Deploya till GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
