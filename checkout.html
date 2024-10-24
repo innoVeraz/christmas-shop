@@ -11,13 +11,13 @@
         rel="stylesheet">
     <script src="https://kit.fontawesome.com/fef0a19249.js" crossorigin="anonymous"></script>
     
-  <script type="module" crossorigin src="/christmas-shop/assets/main.292bae32.js"></script>
-  <link rel="stylesheet" href="/christmas-shop/assets/main.0f5390c3.css">
+  <script type="module" crossorigin src="/christmas-shop/assets/main.2ed57003.js"></script>
+  <link rel="stylesheet" href="/christmas-shop/assets/main.f8e9ad69.css">
 </head>
 
 <body class="checkout-body">
 
-    <header>
+    <header class="header">
         <div class="offer-row">
             <p>Just nu! 20% rabatt på allt med koden <strong>jul-2024</strong> </p>
         </div>
@@ -39,93 +39,93 @@
         </div>
         <nav class="mobile-nav"></nav>
         <nav class="desktop-nav"></nav>
+    </header>
+    <section class="checkout-form-wrapper">
 
-        <section class="checkout-form-wrapper">
+        <div class="checkout-content">
+            <h2>Välkommen till kassan</h2>
+            <div class="shopping-cart-content"></div>
+            <div class="shopping-cart-footer"></div>
+            <div class="checkout-rebate-wrapper">
 
-            <div class="checkout-content">
-                <h2>Välkommen till kassan</h2>
-                <div class="shopping-cart-content"></div>
-                <div class="shopping-cart-footer"></div>
-                <div class="checkout-rebate-wrapper">
+                <label for="rebate-code">Rabattkod</label>
+                <div class="rebate-content">
+                    <input class="rebate-input" type="text" name="rebate-code" id="rebate-code">
+                    <div class="rebate-message" id="rebate-message"></div>
+                </div>
+                <button class="use-rebate-btn">Lägg till</button>
+            </div>
 
-                    <label for="rebate-code">Rabattkod</label>
-                    <div class="rebate-content">
-                        <input class="rebate-input" type="text" name="rebate-code" id="rebate-code">
-                        <div class="rebate-message" id="rebate-message"></div>
+
+            <div class="input-form-wrapper">
+                <h3>Fyll i dina kontaktuppgifter</h3>
+                <label for="email">
+                    <p>E-mail <span>*</span></p>
+                    <input type="email" name="email" id="email">
+                </label>
+                <label for="full-name">
+                    <p>För & Efternamn<span>*</span></p>
+                    <input type="text" name="fullname" id="full-name">
+                </label>
+                <label for="adress">
+                    <p>Adress<span>*</span></p>
+                    <input type="text" name="street" id="adress">
+                </label>
+                <label for="care-of">
+                    <p>c/o adress</p>
+                    <input type="text" name="care-of" id="care-of">
+                </label>
+                <label for="zip-code">
+                    <p>Postkod<span>*</span></p>
+                    <input type="text" name="zip" id="zip-code">
+                </label>
+                <label for="city">
+                    <p>Ort<span>*</span></p>
+                    <input type="text" name="city" id="city">
+                </label>
+            </div>
+            <div class="checkout-btn-wrapper">
+                <button disabled class="place-order" id="placeOrderBtn">Lägg beställning</button>
+                <audio id="button-sound" src="sounds/bells.mp3" preload="auto"></audio>
+
+                <button class="keep-shopping-btn"><a href="product-page.html">Fortsätt shoppa</a></button>
+            </div>
+        </div>
+        <button class="abort-order-btn">Avbryt beställning</button>
+        <div id="toast-container"></div>
+        </div>
+    </section>
+
+    <button class="scroll-to-top-btn">Till toppen</button>
+    <footer class="main-footer">
+        <div class="main-footer-content">
+            <div class="main-footer-logo-content">
+                <a href="index.html">
+                    <div>
+                        <img src="/christmas-shop/svgator-christmas-icon-set/ornament.gif" alt="Ornament" width="50px">
                     </div>
-                    <button class="use-rebate-btn">Lägg till</button>
-                </div>
-
-
-                <div class="input-form-wrapper">
-                    <h3>Fyll i dina kontaktuppgifter</h3>
-                    <label for="email">
-                        <p>E-mail <span>*</span></p>
-                        <input type="email" name="email" id="email">
-                    </label>
-                    <label for="full-name">
-                        <p>För & Efternamn<span>*</span></p>
-                        <input type="text" name="fullname" id="full-name">
-                    </label>
-                    <label for="adress">
-                        <p>Adress<span>*</span></p>
-                        <input type="text" name="street" id="adress">
-                    </label>
-                    <label for="care-of">
-                        <p>c/o adress</p>
-                        <input type="text" name="care-of" id="care-of">
-                    </label>
-                    <label for="zip-code">
-                        <p>Postkod<span>*</span></p>
-                        <input type="text" name="zip" id="zip-code">
-                    </label>
-                    <label for="city">
-                        <p>Ort<span>*</span></p>
-                        <input type="text" name="city" id="city">
-                    </label>
-                </div>
-                <div class="checkout-btn-wrapper">
-                    <button disabled class="place-order" id="placeOrderBtn">Lägg beställning</button>
-                    <audio id="button-sound" src="sounds/bells.mp3" preload="auto"></audio>
-
-                    <button class="keep-shopping-btn"><a href="product-page.html">Fortsätt shoppa</a></button>
-                </div>
-            </div>
-            <button class="abort-order-btn">Avbryt beställning</button>
-            <div id="toast-container"></div>
-            </div>
-        </section>
-
-        <button class="scroll-to-top-btn">Till toppen</button>
-        <footer class="main-footer">
-            <div class="main-footer-content">
-                <div class="main-footer-logo-content">
-                    <a href="index.html">
-                        <div>
-                            <img src="/christmas-shop/svgator-christmas-icon-set/ornament.gif" alt="Ornament" width="50px">
-                        </div>
-                        <div>
-                            <p class="footer-logo">Julprylar</p>
-                        </div>
-                    </a>
-                </div>
-                <a class="footer-link" href="https://goo.gl/maps/Upka1FHzJTjSVr8s8">
-                    <ul class="page-adress">
-                        <li>Julprylar & Co AB</li>
-                        <li>Hornsgatan 80</li>
-                        <li>117 26 Stockholm</li>
-                    </ul>
+                    <div>
+                        <p class="footer-logo">Julprylar</p>
+                    </div>
                 </a>
-
-                <ul class="page-contact">
-                    <li>Telefon: 08-123 45 67</li>
-                    <li>E-mail: julprylar@gmail.com</li>
-                </ul>
             </div>
-        </footer>
+            <a class="footer-link" href="https://goo.gl/maps/Upka1FHzJTjSVr8s8">
+                <ul class="page-adress">
+                    <li>Julprylar & Co AB</li>
+                    <li>Hornsgatan 80</li>
+                    <li>117 26 Stockholm</li>
+                </ul>
+            </a>
+
+            <ul class="page-contact">
+                <li>Telefon: 08-123 45 67</li>
+                <li>E-mail: julprylar@gmail.com</li>
+            </ul>
+        </div>
+    </footer>
 
 
-        
+    
 </body>
 
 </html>
