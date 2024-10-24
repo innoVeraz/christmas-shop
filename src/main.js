@@ -18,10 +18,34 @@ function closeCart() {
   cartItemsEl.classList.remove('open');
 }
 
-// Function to fade out the sound
+function placeOrder() {
+  if (emailIsOk && nameIsOk && adressIsOk && zipIsOk && cityIsOk) {
+    playShortSoundWithFade();
+
+    showToast(
+      'Tack för din beställning! Bekräftelse skickas med e-post. God Jul!'
+    ),
+      clearOrder();
+  }
+}
+
+function showToast(message) {
+  const toastContainer = document.getElementById('toast-container');
+  const toast = document.createElement('div');
+  toast.classList.add('toast');
+
+  toast.innerHTML = `
+    <i class="fa fa-check-circle"></i>
+    ${message}
+  `;
+
+  toastContainer.appendChild(toast);
+}
+
+// Function to fade out the sound gradually
 function fadeOutSound(audio, duration) {
   let volume = audio.volume;
-  const fadeDuration = duration || 2000;
+  const fadeDuration = duration || 8000;
   const fadeInterval = 50;
   const fadeStep = volume / (fadeDuration / fadeInterval);
 
@@ -37,6 +61,7 @@ function fadeOutSound(audio, duration) {
   }, fadeInterval);
 }
 
+// Function to play the sound and then fade it out
 function playShortSoundWithFade() {
   if (sound) {
     sound.volume = 1;
@@ -46,39 +71,12 @@ function playShortSoundWithFade() {
     });
 
     setTimeout(() => {
-      fadeOutSound(sound, 2000);
-    }, 1000);
+      fadeOutSound(sound, 8000);
+    }, 2000);
   }
 }
 
-// Function that handles the order placement
-function placeOrder() {
-  if (emailIsOk && nameIsOk && adressIsOk && zipIsOk && cityIsOk) {
-    showToast(
-      'Tack för din beställning! Vi skickar en bekräftelse till din e-post när klapparna är på väg. God Jul!'
-    );
-    clearOrder();
-    playShortSoundWithFade();
-  }
-}
-//Toast
-function showToast(message) {
-  const toastContainer = document.getElementById('toast-container');
-  const toast = document.createElement('div');
-  toast.classList.add('toast');
-
-  toast.innerHTML = `
-    <i class="fa fa-check-circle"></i>
-    ${message}
-  `;
-
-  toastContainer.appendChild(toast);
-
-  setTimeout(() => {
-    toast.remove();
-  }, 3000);
-}
-
+// Function that redirects the user to the product page
 function goToAllProducts() {
   window.location.href = 'product-page.html';
 }
@@ -286,8 +284,6 @@ const sortingEl = document.querySelector('.drop-down-sort');
 
 sortingEl?.addEventListener('change', onSortingChange);
 
-renderProducts();
-
 function renderProducts(sorting) {
   if (!productEl) {
     return;
@@ -301,20 +297,46 @@ function renderProducts(sorting) {
     <article class="product-information">
       <img src="${product.img[0]}" alt="${product.alt}">
       <div class="rating-and-price">
-  
-      ${renderRating(product.rating)}
+        ${renderRating(product.rating)}
       </div>
       <h3>${product.name}</h3>
-          <div class="price">${product.price} kr</div>
-      <button class="add-to-cart" data-id="${product.id}">Lägg till</button>
+      <div class="price">${product.price} kr</div>
+      <button class="add-to-cart" data-id="${product.id}">
+        <span class="button-text">Lägg till</span>
+        <div class="success-checkmark" style="display: none;">
+          <div class="check-icon">
+            <span class="icon-line line-tip"></span>
+            <span class="icon-line line-long"></span>
+            <div class="icon-circle"></div>
+            <div class="icon-fix"></div>
+          </div>
+        </div>
+      </button>
     </article>`;
     });
+
   document.querySelectorAll('.add-to-cart').forEach(el => {
     el.addEventListener('click', function (e) {
-      addToCart(parseInt(e.currentTarget.dataset.id));
+      const button = e.currentTarget;
+      const buttonText = button.querySelector('.button-text');
+      const checkmark = button.querySelector('.success-checkmark');
+
+      addToCart(parseInt(button.dataset.id));
+
+      buttonText.style.display = 'none';
+      button.style.backgroundColor = 'green';
+      checkmark.style.display = 'block';
+
+      setTimeout(() => {
+        checkmark.style.display = 'none';
+        buttonText.style.display = 'block';
+        button.style.backgroundColor = 'black';
+      }, 2000);
     });
   });
 }
+
+renderProducts();
 
 function renderRating(rating) {
   let html = '';
