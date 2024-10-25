@@ -38,11 +38,13 @@ function renderRating(rating) {
   for (let i = 1; i <= 5; i++) {
     if (i <= rating) {
       html += `
-        <i class="fa-regular fa-snowflake color-rating"></i>
+      <i class="fa-solid fa-heart color-rating"></i>
+        
         `;
     } else {
       html += `
-        <i class="fa-regular fa-snowflake rating-color-none"></i>
+       <i class="fa-solid fa-heart rating-color-none"></i>
+    
         `;
     }
   }

@@ -245,6 +245,7 @@ function renderSubtotal(rebate = false) {
 }
 
 function addToCart(id) {
+  cartIcon.classList.add('pulse');
   if (cart.some(item => item.id === id)) {
     changeNumberOfUnits('plus', id);
   } else {
@@ -255,6 +256,9 @@ function addToCart(id) {
     });
   }
   updateCart();
+  setTimeout(() => {
+    cartIcon.classList.remove('pulse');
+  }, 1000);
 }
 
 function changeNumberOfUnits(action, id) {
@@ -344,11 +348,13 @@ function renderRating(rating) {
   for (let i = 1; i <= 5; i++) {
     if (i <= rating) {
       html += `
-        <i class="fa-regular fa-snowflake color-rating"></i>
+      <i class="fa-solid fa-heart color-rating"></i>
+      
         `;
     } else {
       html += `
-        <i class="fa-regular fa-snowflake rating-color-none"></i>
+      <i class="fa-solid fa-heart rating-color-none"></i>
+       
         `;
     }
   }

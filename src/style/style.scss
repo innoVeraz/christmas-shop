@@ -50,10 +50,6 @@ body {
   background-color: white;
   height: 2em;
   color: black;
-
-  p {
-    font-size: 12px;
-  }
 }
 
 header {
@@ -73,7 +69,7 @@ header {
   .header-content {
     display: flex;
     justify-content: space-between;
-    padding: 1rem;
+    padding: 2rem;
     align-items: center;
     max-width: 1024px;
     margin: auto;
@@ -215,7 +211,7 @@ header {
   top: 100px;
   width: 100%;
   background-color: $primary-green;
-  box-shadow: 0 2px 10px -6px #4e4d4d;
+  box-shadow: 0 9px 10px -10px #4e4d4d;
   justify-content: space-around;
   padding: $padding-small;
 
@@ -337,6 +333,25 @@ header {
   display: flex;
   gap: 10px;
   align-items: center;
+  color: #fff;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.4); /* Växer lite */
+  }
+
+  100% {
+    transform: scale(1); /* Tillbaka till ursprunglig storlek */
+  }
+}
+
+.pulse {
+  animation: pulse 1s ease-in-out forwards;
 }
 
 //scroll to top button styles
@@ -361,7 +376,7 @@ header {
   max-width: 1024px;
   margin: auto;
   text-align: right;
-  padding: 2rem;
+  padding: 15rem 2rem 0;
 }
 
 .sort-btn {
@@ -377,6 +392,12 @@ header {
 }
 
 //product card section
+
+.product-body {
+  background-color: rgb(227, 224, 224);
+  color: #1b453d;
+}
+
 .product-container {
   grid-template-columns: repeat(2, 1fr);
   padding: 2rem;
@@ -416,7 +437,7 @@ header {
 
   .color-rating {
     border-radius: $button-border-radius;
-    color: rgb(255, 255, 255);
+    color: rgb(175, 24, 24);
   }
 
   .rating-color-none {
