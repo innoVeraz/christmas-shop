@@ -108,7 +108,7 @@ header {
     display: flex;
     flex-direction: column;
     gap: 4rem;
-    text-align: center;
+    align-items: center;
     margin-top: 6rem;
 
     h2 {
@@ -895,7 +895,7 @@ header {
 }
 
 //button animation
-/* Adjusted for smaller size and to fit inside the button */
+
 .success-checkmark {
   width: 24px;
   height: 24px;
@@ -1012,4 +1012,23 @@ header {
     right: 4px;
     top: 12px;
   }
+}
+
+#flipdown {
+  transform: scale(0.7);
+}
+
+.flipdown .rotor .rotor-leaf-front,
+.flipdown .rotor .rotor-leaf-rear,
+.flipdown .rotor-top,
+.flipdown .rotor-bottom {
+  background-color: #b63434 !important;
+  color: #fff !important;
+  border: none !important;
+}
+
+.flipdown .rotor::after {
+  border-top: solid 1px #b45555c2 !important;
+  background-color: rgba(255, 255, 255, 10%);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 10%);
 }

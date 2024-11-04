@@ -1,4 +1,5 @@
 import { products } from './products';
+
 const hamburgerButton = document.querySelector('.hamburger-menu-icon');
 const mobileNav = document.querySelector('.mobile-nav');
 const desktopNav = document.querySelector('.desktop-nav');
@@ -505,3 +506,18 @@ function isEmail(maybeEmail) {
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     );
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  const currentYear = new Date().getFullYear();
+  const christmasEve =
+    new Date(`${currentYear}-12-24T00:00:00`).getTime() / 1000;
+
+  new FlipDown(christmasEve, {
+    theme: 'light',
+    headings: ['Dagar', 'Timmar', 'Minuter', 'Sekunder'],
+  })
+    .start()
+    .ifEnded(() => {
+      console.log('God Jul!');
+    });
+});

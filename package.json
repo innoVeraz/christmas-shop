@@ -29,6 +29,7 @@
     "vite": "^3.2.3"
   },
   "dependencies": {
+    "flipdown": "^0.3.2",
     "pnpm": "^9.12.2"
   }
 }
