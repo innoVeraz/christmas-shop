@@ -44,12 +44,30 @@ body {
 
 .offer-row {
   width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
   background-color: white;
-  height: 2em;
   color: black;
+
+  h1 {
+    color: #2e7669;
+  }
+
+  @media (min-width: 640px) {
+    .offer-text-wrap {
+      max-width: 1024px;
+      margin: auto;
+      padding: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+
+      .offer-text {
+        display: flex;
+        gap: 0.5rem;
+      }
+    }
+  }
 }
 
 header {
@@ -78,11 +96,12 @@ header {
 
 .product-page-header {
   position: fixed;
+  z-index: 99;
 }
 
 // Main content mobile
 .main-content {
-  padding: 1rem 2rem;
+  padding: 4rem 2rem;
   position: relative;
 
   .ornament-img {
@@ -91,12 +110,16 @@ header {
 
   .ornament-wrapper {
     position: absolute;
-    top: 0;
+    top: -63px;
     right: 0;
-    z-index: -1;
+    z-index: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media screen and (min-width: 640px) {
+      top: 0;
+    }
   }
 
   .gift-gif {
@@ -108,16 +131,24 @@ header {
     display: flex;
     flex-direction: column;
     gap: 4rem;
+    text-align: center;
     align-items: center;
-    margin-top: 6rem;
+    z-index: 13;
 
     h2 {
       font-size: 2rem;
       font-weight: $font-weight-bold;
+      z-index: 1;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      font-weight: 300;
+      font-family: cursive;
     }
 
     p {
-      font-size: 1.5rem;
+      font-size: 1.3rem;
     }
   }
 
@@ -169,11 +200,11 @@ header {
       gap: 2rem;
 
       h2 {
-        font-size: 2.5rem;
+        font-size: 4rem;
       }
 
       p {
-        font-size: 1.8rem;
+        font-size: 1.2rem;
       }
     }
   }
@@ -213,7 +244,7 @@ header {
   background-color: $primary-green;
   box-shadow: 0 9px 10px -10px #4e4d4d;
   justify-content: space-around;
-  padding: $padding-small;
+  padding: 2rem 1rem;
 
   @media screen and (min-width: $mobile-breakpoint) {
     display: flex;
@@ -372,6 +403,14 @@ header {
   }
 }
 
+.nav-button {
+  padding: 0.3rem 1rem;
+}
+
+.view-all-products-btn:hover {
+  background-color: $hover-color;
+}
+
 .sort-wrapper {
   max-width: 1024px;
   margin: auto;
@@ -446,8 +485,8 @@ header {
 }
 
 .add-to-cart {
-  background-color: $text-dark;
-  padding: $padding-small;
+  background-color: #203162;
+  padding: 0.7rem;
   border: none;
   color: $text-light;
   border-radius: $button-border-radius;
@@ -473,7 +512,7 @@ header {
   height: 0;
   transition: height 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   overflow-y: scroll;
-  z-index: 3;
+  z-index: 999;
   background-color: white;
   color: #1b453d;
 
@@ -578,7 +617,7 @@ header {
   .go-to-checkout {
     grid-column: 1 / 3;
     align-self: end;
-    background-color: rgb(5, 0, 155);
+    background-color: #203162;
     color: $text-light;
     text-decoration: none;
     border: 1px solid $text-dark;
@@ -590,7 +629,7 @@ header {
   }
 
   .go-to-checkout:hover {
-    background-color: rgb(31, 28, 246);
+    background-color: #2b4181;
     color: $text-light;
   }
 }
@@ -678,7 +717,7 @@ header {
   padding: $padding-small;
   border: none;
   border-radius: 0.5rem;
-  background-color: $text-dark;
+  background-color: #203162;
   color: $text-light;
 
   &:hover {
@@ -901,7 +940,7 @@ header {
   height: 24px;
   display: inline-block; /* Inline to fit inside button */
   vertical-align: middle;
-  margin-left: 115px; /* Space between text and icon */
+  margin: auto; /* Space between text and icon */
   position: relative;
 }
 
@@ -968,10 +1007,9 @@ header {
   position: absolute;
   top: 0;
   left: 0;
-  width: 24px;
-  height: 24px;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
-  box-sizing: content-box;
   border: 2px solid rgb(241, 245, 241); /* Lighter border */
   z-index: 10;
 }
@@ -1014,6 +1052,8 @@ header {
   }
 }
 
+// Flipdown styles
+
 #flipdown {
   transform: scale(0.7);
 }
@@ -1031,4 +1071,10 @@ header {
   border-top: solid 1px #b45555c2 !important;
   background-color: rgba(255, 255, 255, 10%);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 10%);
+}
+
+@media screen and (max-width: $desktop-breakpoint) {
+  #flipdown {
+    display: none;
+  }
 }

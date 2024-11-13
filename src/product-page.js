@@ -10,6 +10,7 @@ renderProducts();
 
 function renderProducts(sorting) {
   productEl.innerHTML = '';
+
   products
     .filter(product => product.category.includes(category))
     .sort((a, b) => sortProducts(a, b, sorting))

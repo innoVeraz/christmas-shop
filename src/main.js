@@ -121,7 +121,10 @@ function setActive() {
 function renderNavigation() {
   const navigation = ` <h3 class="nav-header">Kategorier</h3>
     <ul>
-      <li><a href="product-page.html">Alla produkter</a></li>
+      <li>
+      <a href="product-page.html">Alla produkter</a>
+    
+      </li>
       <li><a href="product-page.html?category=belysning">Belysning</a></li>
       <li><a href="product-page.html?category=dekoration">Dekoration</a></li>
       <li><a href="product-page.html?category=krukor">Krukor</a></li>
@@ -335,8 +338,8 @@ function renderProducts(sorting) {
       setTimeout(() => {
         checkmark.style.display = 'none';
         buttonText.style.display = 'block';
-        button.style.backgroundColor = 'black';
-      }, 2000);
+        button.style.backgroundColor = '#203162';
+      }, 1000);
     });
   });
 }
