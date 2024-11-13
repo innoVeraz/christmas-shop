@@ -3,7 +3,10 @@
     ${t}
   `,e.appendChild(r)}function Te(t,e){let r=t.volume;const a=e||8e3,n=50,o=r/(a/n),p=setInterval(()=>{r>0?(r=Math.max(0,r-o),t.volume=r):(clearInterval(p),t.pause(),t.currentTime=0)},n)}function qe(){k&&(k.volume=1,k.currentTime=0,k.play().catch(t=>{console.error("Error playing the sound:",t)}),setTimeout(()=>{Te(k,8e3)},2e3))}function Ce(){window.location.href="product-page.html"}j&&g&&($e(),Ie());T==null||T.addEventListener("click",t=>{t.stopPropagation(),g.classList.add("open")});function Oe(t,e){document.addEventListener("click",r=>{t.contains(r.target)||e()})}Oe(g,()=>{g.classList.remove("open")});function Ie(){const t=[...g.getElementsByTagName("a"),...j.getElementsByTagName("a")];for(let e=0;e<t.length;e++)document.location.href===t[e].href&&(t[e].className="active")}function $e(){const t=` <h3 class="nav-header">Kategorier</h3>
     <ul>
-      <li><a href="product-page.html">Alla produkter</a></li>
+      <li>
+      <a href="product-page.html">Alla produkter</a>
+    
+      </li>
       <li><a href="product-page.html?category=belysning">Belysning</a></li>
       <li><a href="product-page.html?category=dekoration">Dekoration</a></li>
       <li><a href="product-page.html?category=krukor">Krukor</a></li>
@@ -56,7 +59,7 @@
           </div>
         </div>
       </button>
-    </article>`}),document.querySelectorAll(".add-to-cart").forEach(e=>{e.addEventListener("click",function(r){const a=r.currentTarget,n=a.querySelector(".button-text"),o=a.querySelector(".success-checkmark");Ke(parseInt(a.dataset.id)),n.style.display="none",a.style.backgroundColor="green",o.style.display="block",setTimeout(()=>{o.style.display="none",n.style.display="block",a.style.backgroundColor="black"},2e3)})}))}J();function xe(t){let e="";for(let r=1;r<=5;r++)r<=t?e+=`
+    </article>`}),document.querySelectorAll(".add-to-cart").forEach(e=>{e.addEventListener("click",function(r){const a=r.currentTarget,n=a.querySelector(".button-text"),o=a.querySelector(".success-checkmark");Ke(parseInt(a.dataset.id)),n.style.display="none",a.style.backgroundColor="green",o.style.display="block",setTimeout(()=>{o.style.display="none",n.style.display="block",a.style.backgroundColor="#203162"},1e3)})}))}J();function xe(t){let e="";for(let r=1;r<=5;r++)r<=t?e+=`
       <i class="fa-solid fa-heart color-rating"></i>
       
         `:e+=`
